@@ -1,0 +1,38 @@
+.MenuItem {
+    color: white;
+    margin: 10px 0;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    cursor: pointer;
+    line-height: 1.5em;
+    letter-spacing: .175em;
+    text-transform: uppercase;
+    padding: 1em;
+    font-weight: 500;
+}
+
+.MenuItem a {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+}
+
+@media (min-width: 500px) {
+    .MenuItem {
+        position: relative;
+        font-size: 13px;
+        display: flex;
+    }
+    
+    .MenuItem a {
+        color: white;
+        text-decoration: none;
+        height: 100%;
+        padding: 16px 10px;
+        box-sizing: border-box;
+        display: block;
+    }
+}

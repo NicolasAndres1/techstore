@@ -1,0 +1,13 @@
+.StockLabel {
+    border-radius: 10px;
+    padding: 0 5px;
+    color: whitesmoke;
+}
+
+.InStock {
+    background-color: green;
+}
+
+.OutOfStock {
+    background-color: rgb(153, 2, 2);
+}

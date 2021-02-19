@@ -1,0 +1,16 @@
+.Search {
+    display: flex;
+}
+
+.Searchbar {
+    font-size: medium;
+    color: white;
+    padding: .5em 1em;
+    border: 1px solid white;
+    border-radius: 25px;
+    background: black;
+}
+
+.SearchButton {
+    margin-left: 10px;
+}

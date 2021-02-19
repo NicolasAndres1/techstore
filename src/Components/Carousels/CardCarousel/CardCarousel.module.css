@@ -1,0 +1,11 @@
+.CardCarousel {
+    display: block;
+    align-items: center;
+    list-style: none;
+}
+
+@media (min-width: 500px) {
+    .CardCarousel {
+        display: flex;
+    }
+}

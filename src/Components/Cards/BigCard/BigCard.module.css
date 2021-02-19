@@ -1,0 +1,57 @@
+.Card {
+    width: 450px;
+    
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 2%;
+    padding: 0px 0px 10px 0px;
+    margin: 16px 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.Card:hover img {
+    transform: scale(1.1);
+}
+
+.Card a {
+    text-decoration: none;
+}
+
+.Card .Info {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.Card .ImgWrapper {
+    display: inline-block;
+    overflow: hidden; 
+}
+
+.Card img {
+    height: 300px;
+    width: 100%;
+    transition: transform 1.2s;
+}
+
+.Card .ProductName {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.Card .PreviousPrice {
+    font-size: medium;
+    margin: 15px 0 0 0;
+    text-decoration: line-through;
+}
+
+.Card .ProductPrice {
+    font-size: x-large;
+    font-weight: bolder;
+    margin: 0 0 15px 0;
+}
+
+.Card .CustomButton {
+    margin-top: 15px;
+}

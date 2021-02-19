@@ -1,0 +1,17 @@
+section {
+    max-width: 1350px;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    padding: 2em;
+    height: 100%;
+}
+
+.CardCarousel {
+    margin-top: 16px;
+}
+
+.BestDeals {
+    margin-top: inherit;
+    text-align: center;
+}

@@ -1,0 +1,44 @@
+.Card {
+    cursor: pointer;
+    width: 80%;
+    height: 400px;
+    max-height: fit-content;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 2%;
+    padding: 16px 10px;
+    margin: 16px 10px;
+    box-sizing: border-box;
+    transition: transform .2s;
+    text-align: center;
+    overflow: hidden;
+}
+
+.Card:hover {
+    box-shadow: 0 2px 14px #585858;
+    transform: scale(1.1);
+}
+
+.Card a {
+    text-decoration: none;
+}
+
+.Card img {
+    height: 200px;
+    max-width: 100%;
+    max-height: 50%;
+    margin-bottom: 30px;
+}
+
+.Card .ProductName {
+    margin-bottom: 15px;
+}
+
+.Card .ProductPrice {
+    margin-bottom: 15px;
+}
+
+.Card .CustomButton {
+    margin-top: 10px;
+}
+

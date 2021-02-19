@@ -1,0 +1,11 @@
+.LogoWrapper {
+    display: flex;
+    margin: auto 0;
+    height: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.LogoWrapper img {
+    height: 100%;
+}

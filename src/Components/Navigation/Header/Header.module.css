@@ -1,0 +1,48 @@
+.Header {
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    height: 96px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 90;
+}
+
+.LogoWrapper {
+    height: 80%;
+}
+
+.Menu {
+    display: flex;
+}
+
+.Controls {
+    display: flex;
+    margin: 20px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.SidedrawerToggle {
+    color: white;
+}
+
+@media (max-width: 499px) {
+    .Menu {
+        display: none;
+    }
+
+    .LogoWrapper {
+        display: none;
+    }
+
+    .Controls {
+        display: none;
+    }
+}
+
