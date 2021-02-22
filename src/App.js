@@ -9,10 +9,10 @@ import ProductDetails from './Containers/ProductDetails/ProductDetails';
 const App = () => {
   let routes = (
     <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/home" exact component={Home} />
-      <Route path="/product/:id" component={ProductDetails} />
+      <Route path="/home" component={Home} />
+      <Route path="/product/:url/:id" component={ProductDetails} />
       <Route path="/category/:category" component={Category} />
+      <Route path="/" component={Home} />
     </Switch>
   );
 

@@ -10,7 +10,7 @@ const SimpleCard = props => {
     return (
         <Link 
             className={classes.Card} 
-            to={`/product/${url}`}>
+            to={`/product/${url}/${props.id}`}>
                 <img src={props.img}/>
                 <p className={classes.ProductName}> { props.name } </p>
                 <h5 className={classes.ProductPrice}> U$D { props.price } </h5>

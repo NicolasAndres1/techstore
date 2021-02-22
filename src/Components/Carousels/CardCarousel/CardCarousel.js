@@ -8,6 +8,7 @@ const CardCarousel = props => (
         {props.topSellers.map((data, key) => {
             return <SimpleCard
                 key={key}
+                id={data.id}
                 img={data.img}
                 name={data.name}
                 price={data.price}/>

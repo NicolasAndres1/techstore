@@ -21,8 +21,26 @@ const Home = props => {
     /* FETCH BEST DEALS ITEMS */
     useEffect(() =>{ 
         BestDealsService.getAll()
-            .on("value", onBestDealsChange);
+            .once("value", onBestDealsChange);
     }, []);
+
+    const onTopSellersChange = (items) => {
+        const topSellersArray = [];
+        items.forEach((item) => {
+            let key = item.key;
+            let data = item.val();
+
+            topSellersArray.push({
+                key: key,
+                id: data.id,
+                img: data.img,
+                name: data.name,
+                price: data.price
+            });
+        });
+        
+        setTopSellers(topSellersArray);
+    };
 
     const onBestDealsChange = (items) => {
         const bestDealsArray = [];
@@ -42,23 +60,6 @@ const Home = props => {
         });
 
         setBestDeals(bestDealsArray);
-    };
-
-    const onTopSellersChange = (items) => {
-        const topSellersArray = [];
-        items.forEach((item) => {
-            let id = item.key;
-            let data = item.val();
-
-            topSellersArray.push({
-                id: id,
-                img: data.img,
-                name: data.name,
-                price: data.price
-            });
-        });
-        
-        setTopSellers(topSellersArray);
     };
 
     // const jejoz = () => TopSellersService.getById(1)
