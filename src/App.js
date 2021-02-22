@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 
 import Layout from './Containers/Layout/Layout';
@@ -10,12 +10,9 @@ const App = () => {
   let routes = (
     <Switch>
       <Route path="/" exact component={Home} />
+      <Route path="/home" exact component={Home} />
       <Route path="/product/:id" component={ProductDetails} />
-      <Route path="/supplies" component={Category} />
-      <Route path="/computer" component={Category} />
-      <Route path="/electronics" component={Category} />
-      <Route path="/gaming" component={Category} />
-      <Route path="/categories" component={Category} />
+      <Route path="/category/:category" component={Category} />
     </Switch>
   );
 
