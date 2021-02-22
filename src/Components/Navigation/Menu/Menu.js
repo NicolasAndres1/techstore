@@ -1,30 +1,35 @@
 import React from 'react';
 
-import classes from "./Menu.module.css";
+import classes from './Menu.module.css';
+
 import MenuItem from './MenuItem/MenuItem';
 
 const Menu = props => (
     <ul className={classes.Menu}>
         <MenuItem
             className={classes.MenuItem}
-            title='SUPPLIES'
-            link='/'/>
+            title='COMPUTER SYSTEMS'
+            link='/supplies'/>
         <MenuItem
             className={classes.MenuItem} 
             title='COMPONENTS'
-            link='/'/>
+            link='/computer'/>
         <MenuItem
             className={classes.MenuItem} 
             title='ELECTRONICS'
-            link='/'/>
+            link='/electronics'/>
         <MenuItem
             className={classes.MenuItem} 
-            title='GAMING ZONE'
-            link='/'/>
+            title='GAMING'
+            link='/gaming'/>
         <MenuItem
             className={classes.MenuItem} 
-            title='CATEGORIES'
-            link='/'/>
+            title='NETWORKING'
+            link='/categories'/>
+        <MenuItem
+            className={classes.MenuItem} 
+            title='SOFTWARE & SERVICES'
+            link='/categories'/>
     </ul>
 );
 

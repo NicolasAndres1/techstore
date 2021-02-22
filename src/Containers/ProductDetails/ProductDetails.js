@@ -4,7 +4,7 @@ const ProductDetails = props => {
 
     return (
         <>
-            
+            <div> productitos </div>
         </>
     );
 };

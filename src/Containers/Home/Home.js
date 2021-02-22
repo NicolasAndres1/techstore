@@ -12,6 +12,24 @@ const Home = props => {
     const [topSellers, setTopSellers] = useState([]);
     const [bestDeals, setBestDeals] = useState([]);
 
+    /* FETCH TOP SELLERS ITEMS */
+    useEffect(() => {
+        TopSellersService.getAll()
+            .on("value", onTopSellersChange);
+        
+        // return () => TopSellersService.getAll()
+        //     .off("value", onTopSellersChange)
+    }, []);
+
+    /* FETCH BEST DEALS ITEMS */
+    useEffect(() =>{ 
+        BestDealsService.getAll()
+            .on("value", onBestDealsChange);
+
+        // return () => BestDealsService.getAll()
+        //     .off("value", onBestDealsChange);
+    }, []);
+
     const onBestDealsChange = (items) => {
         const bestDealsArray = [];
         items.forEach((item) => {
@@ -48,13 +66,11 @@ const Home = props => {
         setTopSellers(topSellersArray);
     };
 
-    /* FETCH TOP SELLERS ITEMS */
-    useEffect(() => TopSellersService.getAll()
-                        .on("value", onTopSellersChange,
-                        error => console.log('fallo total papa')), []);
+    // const jejoz = () => TopSellersService.getById(1)
+    //                     .on('value', ahre,
+    //                     (error) => console.log('fallo'))
     
-    /* FETCH BEST DEALS ITEMS */
-    useEffect(() => BestDealsService.getAll().on("value", onBestDealsChange), []);
+    
     
     return (
         <>
