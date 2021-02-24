@@ -27,8 +27,6 @@ const QuantitySelector = ({value, onClick}) => {
         'dropdown-arrow-up': dropdownToggler,
     });
 
-    console.log(buttonArrowClasses);
-
     return (
         <div className='quantity-selector'>
             <div className='backdrop'>

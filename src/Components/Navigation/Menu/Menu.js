@@ -14,6 +14,7 @@ const Menu = props => {
         <ul className={classes.Menu}>
             {categories ?
                 categories.map((item, key) => {
+                    console.log(item)
                     return <MenuItem 
                         key={key}
                         className={classes.MenuItem}
