@@ -7,9 +7,9 @@
     text-align: center;
 }
 
-.Menu li:not(:first-child) {
+/* .Menu li:not(:first-child) {
     border-left: 1px solid white;
-}
+} */
 
 .JUTTON {
     width: 1px;

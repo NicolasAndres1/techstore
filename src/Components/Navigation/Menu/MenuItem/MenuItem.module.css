@@ -20,11 +20,16 @@
     display: block;
 }
 
+.DropdownContent {
+    display: none;
+}
+
+
 @media (min-width: 500px) {
     .MenuItem {
         position: relative;
         font-size: 13px;
-        display: flex;
+        display: inline-block;
     }
     
     .MenuItem a {
@@ -35,4 +40,32 @@
         box-sizing: border-box;
         display: block;
     }
+
+    .VerticalLine {
+        border-left: thick solid #ff0000;
+    }
+
+    .Dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .DropdownContent {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .DropdownContent .SubCategory {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .DropdownContent .SubCategory:hover {background-color: #ddd;}
+    .Dropdown:hover .DropdownContent {display: block;}
 }

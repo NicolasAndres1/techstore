@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import BestDealsService from "../../Services/BestDealsService";
-import TopSellersService from "../../Services/TopSellersService";
+import ProductService from '../../Services/ProductsService';
 
 import classes from './Home.module.css';
 import CardCarousel from '../../Components/Carousels/CardCarousel/CardCarousel';
@@ -11,6 +11,36 @@ import BigCarousel from "../../Components/Carousels/BigCarousel/BigCarousel";
 const Home = props => {
     const [topSellers, setTopSellers] = useState([]);
     const [bestDeals, setBestDeals] = useState([]);
+
+    /* FETCH TOP SELLERS ITEMS */
+    useEffect(() => {
+        ProductService.getTopSellers()
+            .once("value", onTopSellersChange);
+    }, []);
+
+    /* FETCH BEST DEALS ITEMS */
+    useEffect(() =>{ 
+        BestDealsService.getAll()
+            .once("value", onBestDealsChange);
+    }, []);
+
+    const onTopSellersChange = (items) => {
+        const topSellersArray = [];
+        items.forEach((item) => {
+            let key = item.key;
+            let data = item.val();
+
+            topSellersArray.push({
+                key: key,
+                id: data.id,
+                img: data.img,
+                name: data.name,
+                price: data.price
+            });
+        });
+        
+        setTopSellers(topSellersArray);
+    };
 
     const onBestDealsChange = (items) => {
         const bestDealsArray = [];
@@ -32,29 +62,11 @@ const Home = props => {
         setBestDeals(bestDealsArray);
     };
 
-    const onTopSellersChange = (items) => {
-        const topSellersArray = [];
-        items.forEach((item) => {
-            let data = item.val();
-
-            topSellersArray.push({
-                key: item.key,
-                productName: data.ProductName,
-                productImg: data.ProductImg,
-                productPrice: data.ProductPrice
-            });
-        });
-        
-        setTopSellers(topSellersArray);
-    };
-
-    /* FETCH TOP SELLERS ITEMS */
-    useEffect(() => TopSellersService.getAll()
-                        .on("value", onTopSellersChange,
-                        error => console.log('fallo total papa')), []);
+    // const jejoz = () => TopSellersService.getById(1)
+    //                     .on('value', ahre,
+    //                     (error) => console.log('fallo'))
     
-    /* FETCH BEST DEALS ITEMS */
-    useEffect(() => BestDealsService.getAll().on("value", onBestDealsChange), []);
+    
     
     return (
         <>

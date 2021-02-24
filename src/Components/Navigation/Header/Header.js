@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import classes from './Header.module.css';
 import Logo from '../../Logo/Logo';
@@ -12,11 +13,11 @@ const Header = props => {
     return (
         <header className={classes.Header}>
             <DrawerToggle clicked={props.drawerToggleClicked}/>
-            <div className={classes.LogoWrapper}>
+            <Link to={'/home'} className={classes.LogoWrapper}>
                 <Logo />
-            </div>
+            </Link>
             <nav className={classes.Menu}>
-                <Menu className={classes.Menu}/>
+                <Menu />
             </nav>
             <div className={classes.Controls}>
                 <Search />
