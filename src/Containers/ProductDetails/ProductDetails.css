@@ -11,9 +11,6 @@ hr {
 .item-section {
     height: 100%;
     width: auto;
-    /* display: flex;
-    justify-content: space-between;
-    margin: 50px; */
 }
 
 /* BREADCRUMB */
@@ -24,9 +21,6 @@ hr {
 /* PRODUCT IMAGE */
 .img-wrapper img {
     width: 100%;
-
-    /* height: 350px;
-    width: 400px; */
 }
 
 /* PRODUCT INFO */
@@ -42,10 +36,6 @@ hr {
     margin: 10px 0;
     width: 35%;
     text-align: center;
-}
-
-.add-favourite-icon {
-    
 }
 
 /* PRICE AND PRODUCT BUY */
@@ -112,4 +102,39 @@ hr {
 
 .cart-icon {
     margin-left: 5px;
+}
+
+@media (min-width: 499px) {
+    .breadcrumb {
+        display: flex;
+    }
+
+    .item-section {
+        display: flex;
+        justify-content: space-between;
+        width: auto;
+    }
+
+    .img-wrapper img {
+        height: 350px;
+        width: 400px;
+        margin-left: 200px;
+    }
+
+    .item-section .item-stock {
+        width: 30%;
+        max-width: 30%;
+    }
+
+    .price-section {
+        width: 24%;
+    }
+
+    .product-buy {
+        align-items: flex-end;
+    }
+
+    .add-cart-wrapper {
+        margin-top: auto;
+    }
 }

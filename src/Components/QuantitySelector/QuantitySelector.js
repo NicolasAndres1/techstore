@@ -31,9 +31,11 @@ const QuantitySelector = ({value, onClick}) => {
 
     return (
         <div className='quantity-selector'>
-            <Backdrop 
-                show={dropdownToggler}
-                clicked={toggleDropdown}/>
+            <div className='backdrop'>
+                <Backdrop 
+                    show={dropdownToggler}
+                    clicked={toggleDropdown}/>
+            </div>
             <button 
                 className='dropdown-button'
                 onClick={toggleDropdown}>

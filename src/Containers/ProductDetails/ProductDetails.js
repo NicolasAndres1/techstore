@@ -93,16 +93,19 @@ const ProductDetails = props => {
                                 <QuantitySelector 
                                     value={productQuantity}
                                     onClick={productQuantityChanged}/>
-                                <Button onClick={addToCart}> 
-                                    <div className='add-cart-button'>
-                                        <div>
-                                            ADD TO CART
+                                <div className='add-cart-wrapper'>
+                                    <Button 
+                                        onClick={addToCart}> 
+                                        <div className='add-cart-button'>
+                                            <div>
+                                                ADD TO CART
+                                            </div>
+                                            <FontAwesomeIcon 
+                                                className='cart-icon'
+                                                icon={faShoppingCart}/>
                                         </div>
-                                        <FontAwesomeIcon 
-                                            className='cart-icon'
-                                            icon={faShoppingCart}/>
-                                    </div>
-                                </Button>
+                                    </Button>
+                                </div>
                             </div>
                         </div>
                     </div>

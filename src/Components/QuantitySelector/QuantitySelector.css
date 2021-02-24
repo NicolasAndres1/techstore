@@ -51,3 +51,34 @@
 .close-dropdown {
     transform: translateX(-100%) translateY(500%);
 }
+
+@media (min-width: 499px) {
+    .backdrop {
+        display: none;
+    }
+
+    .quantity-selector {
+        display: inline-grid;
+        margin-top: auto;
+    }
+
+    .dropdown {
+        width: max-content;
+        z-index: 200;
+        position: relative;   
+        margin-right: auto;
+        list-style: none;
+        text-align: center;
+    }
+
+    .open-dropdown {
+        transform: none;
+        position: absolute;
+        margin: 30px 0px 0px -105px;
+    }
+
+    .close-dropdown {
+        transform: none;
+        display: none;
+    }
+}
