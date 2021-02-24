@@ -12,13 +12,16 @@
     transition: transform .2s;
     text-align: center;
     overflow: hidden;
-    text-decoration: none;
     color: black;
 }
 
 .Card:hover {
     box-shadow: 0 2px 14px #585858;
     transform: scale(1.1);
+}
+
+.Card a {
+    text-decoration: none;
 }
 
 .Card img {

@@ -8,16 +8,16 @@ const SimpleCard = props => {
     let url = props.name.replace(/\s+/g, '-');
 
     return (
-        <Link 
-            className={classes.Card} 
-            to={`/product/${url}/${props.id}`}>
-                <img src={props.img}/>
-                <p className={classes.ProductName}> { props.name } </p>
-                <h5 className={classes.ProductPrice}> U$D { props.price } </h5>
-                <CustomButton className={classes.CustomButton}> 
-                    See details  
-                </CustomButton>
-        </Link>
+        <div className={classes.Card}>
+            <Link to={`/product/${url}/${props.id}`}>
+                    <img src={props.img}/>
+                    <p className={classes.ProductName}> { props.name } </p>
+                    <h5 className={classes.ProductPrice}> U$D { props.price } </h5>
+                    <CustomButton className={classes.CustomButton}> 
+                        See details  
+                    </CustomButton>
+            </Link>
+        </div>
     );
 };
 

@@ -1,5 +1,11 @@
 .content {
-    
+    width: auto;
+}
+
+hr {
+    height: 1px;
+    background-color: rgb(218, 211, 211);
+    border: none;
 }
 
 .item-section {
@@ -10,6 +16,12 @@
     margin: 50px; */
 }
 
+/* BREADCRUMB */
+.breadcrumb {
+    display: none;
+}
+
+/* PRODUCT IMAGE */
 .img-wrapper img {
     width: 100%;
 
@@ -17,6 +29,7 @@
     width: 400px; */
 }
 
+/* PRODUCT INFO */
 .item-section .item-info {
     margin: 10px 16px;
 }
@@ -27,18 +40,25 @@
 
 .item-section .item-stock {
     margin: 10px 0;
-    width: 23%;
+    width: 35%;
+    text-align: center;
 }
 
+.add-favourite-icon {
+    
+}
+
+/* PRICE AND PRODUCT BUY */
 .price-section {
     margin: 10px;
     border: 1px solid rgb(212, 206, 206);
+    box-shadow: 0 1px 1px #585858;
+    background-color: white;
 }
 
 .price-section .best-price-wrapper {
     display: flex;
     margin: auto;
-    border-bottom: 1px solid rgb(212, 206, 206);
     height: 80px;
     width: 80px;
 }
@@ -50,4 +70,46 @@
 
 .price-wrapper {
     margin: 10px;
+}
+
+.or-separator {
+    margin: 10px 0;
+    font-size: small;
+    color: gray;
+    width: 20%;
+}
+
+.price-finance {
+    display: flex;
+    align-items: baseline;
+}
+
+.finance-cards {
+    display: flex;
+    height: 30px;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.finance-cards img {
+    height: 100%;
+    margin-left: 10px;
+}
+
+.product-buy {
+    margin: 10px 0;
+    padding: 16px 0;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.add-cart-button {
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon {
+    margin-left: 5px;
 }

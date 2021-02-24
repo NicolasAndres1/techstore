@@ -3,7 +3,9 @@ import React from 'react';
 import classes from './CustomButton.module.css';
 
 const CustomButton = props => (
-    <button className={classes.Button}>
+    <button 
+        onClick={props.onClick} 
+        className={classes.Button}>
         { props.children }
     </button>
 );
