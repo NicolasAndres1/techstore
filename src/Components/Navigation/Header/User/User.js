@@ -1,37 +1,46 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
+import { CartContext } from '../../../../context/CartContext';
 import classes from './User.module.css';
 import { faHeart, faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const User = props => (
-    <div className={classes.UserControls}>
-        <button
-            className={classes.Heart}
-            type='button'
-            title='Favourites'>
-            <FontAwesomeIcon 
-                className='FontAwesomeIcon'
-                icon={faHeart}/>
-        </button>
-        <div className={classes.CartButton}>
+const User = props => {
+    const [cart, setCart] = useContext(CartContext);
+    const totalCartQuantity = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+
+    return (
+        <div className={classes.UserControls}>
             <button
+                className={classes.Heart}
                 type='button'
-                title='Cart'>
+                title='Favourites'>
                 <FontAwesomeIcon 
                     className='FontAwesomeIcon'
-                    icon={faShoppingCart}/>
+                    icon={faHeart}/>
             </button>
-            <span className={classes.Badge}>1</span>
+            <div className={classes.CartButton}>
+                <button
+                    type='button'
+                    title='Cart'>
+                    <FontAwesomeIcon 
+                        className='FontAwesomeIcon'
+                        icon={faShoppingCart}/>
+                </button>
+                {cart.length > 0 ?
+                    <span className={classes.Badge}> { totalCartQuantity } </span> :
+                    null
+                }
+            </div>
+            <button
+                type='button'
+                title='User'>
+                <FontAwesomeIcon 
+                    className='FontAwesomeIcon'
+                    icon={faUser}/>
+            </button>
         </div>
-        <button
-            type='button'
-            title='User'>
-            <FontAwesomeIcon 
-                className='FontAwesomeIcon'
-                icon={faUser}/>
-        </button>
-    </div>
-);
+    );
+};
 
 export default User;
