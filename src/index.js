@@ -11,7 +11,6 @@ import "slick-carousel/slick/slick-theme.css";
 const app = (
   <BrowserRouter>
     <App />
-    
   </BrowserRouter>
 );
 

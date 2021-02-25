@@ -1,25 +1,17 @@
 .Menu {
-    height: 64px;
+    font-size: small;
     display: flex;
     align-items: center;
     list-style: none;
     flex-flow: column;
+    padding: 0;
     text-align: center;
-}
-
-/* .Menu li:not(:first-child) {
-    border-left: 1px solid white;
-} */
-
-.JUTTON {
-    width: 1px;
-    background-color: white;
-    height: 40%;
-    float: left;
 }
 
 @media (min-width: 500px) {
     .Menu {
+        height: 64px;
         flex-flow: row;
+        padding: auto;
     }
 }

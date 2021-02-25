@@ -13,44 +13,45 @@
     z-index: 90;
 }
 
-.LogoWrapper {
-    height: 80%;
+.Menu {
+    display: none;
 }
 
-.Menu {
-    display: flex;
+.LogoWrapper {
+    display: none;
 }
 
 .Controls {
     display: flex;
-    margin: 20px;
     box-sizing: border-box;
     align-items: center;
+    /* ELIMINAR ESTO PARA MOSTRAR EL TOGGLE DEL SIDEDRAWER */
 }
 
-.SidedrawerToggle {
-    color: white;
+.Search div {
+    margin: 15px;
 }
 
-.Search {
-    margin-right: 10px;
-}
-
-@media (max-width: 499px) {
-    .Menu {
-        display: none;
-    }
+@media (min-width: 499px) {
 
     .LogoWrapper {
-        display: none;
+        display: flex;
+        height: 80%;
     }
-
+    
+    .Menu {
+        display: flex;
+    }
+    
     .Controls {
-        display: none;
+        display: flex;
+        margin: 20px;
+        box-sizing: border-box;
+        align-items: center;
     }
-
-    .Search div {
-        margin: 50px;
+    
+    .SidedrawerToggle {
+        color: white;
     }
 }
 

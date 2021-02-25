@@ -3,13 +3,15 @@ import classnames from 'classnames';
 
 import './Sidedrawer.css';
 import Logo from '../../Logo/Logo'
-import Menu from "../Menu/Menu";
 import Backdrop from '../../Backdrop/Backdrop';
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SidedrawerMenu from "./SidedrawerMenu/SidedrawerMenu";
 
 const Sidedrawer = props => {
-    const attachedClasses = classnames('Sidedrawer', {
-        'Open': props.open,
-        'Close': !props.open
+    const attachedClasses = classnames('sidedrawer', {
+        'open': props.open,
+        'close': !props.open
     })
 
     return (
@@ -18,16 +20,20 @@ const Sidedrawer = props => {
                 show={props.open}
                 clicked={props.closed}/>
             <div className={attachedClasses}>
-                <div className={'LogoWrapper'}>
-                    <Logo />
+                <div className='login'>
+                    Login
+                    <button
+                        type='button'
+                        title='User'
+                        className='user-logo'>
+                        <FontAwesomeIcon 
+                            className='FontAwesomeIcon'
+                            icon={faUser}/>
+                    </button>
                 </div>
                 <hr />
-                <div>
-                    
-                </div>
-                <hr />
-                <nav className={'MenuWrapper'}>
-                    <Menu />
+                <nav className='menu-wrapper'>
+                    <SidedrawerMenu />
                 </nav>
             </div>
         </>

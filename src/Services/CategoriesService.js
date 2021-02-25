@@ -1,4 +1,4 @@
-import firebase from './firebaseConfig';
+import firebase from '../Config/firebaseConfig';
 
 const db = firebase.ref('/categories');
 

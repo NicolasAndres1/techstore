@@ -1,0 +1,22 @@
+.login-block {
+    color: white;
+    display: block;
+    align-items: center;
+    text-align: center;
+}
+
+.login-block h3 {
+    margin: 10px 0;
+}
+
+.login-form-section {
+    margin: 10px 0;
+}
+
+.login-form-section input {
+    margin: 5px 0;
+}
+
+.login-block button {
+    margin: 10px 0;
+}
