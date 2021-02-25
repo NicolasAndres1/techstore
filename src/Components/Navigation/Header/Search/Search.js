@@ -3,12 +3,11 @@ import React from 'react';
 import classes from './Search.module.css';
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Input from '../../../Input/Input';
 
 const Search = props => (
     <div className={classes.Search}>
-        <input 
-            placeholder="What're you looking for?"
-            className={classes.Searchbar}/>
+        <Input placeholder='What are you looking for?'/>
         <button
             className={classes.SearchButton}
             type='submit'

@@ -10,7 +10,7 @@ const User = props => {
     const totalCartQuantity = cart.reduce((acc, curr) => acc + curr.quantity, 0);
 
     return (
-        <div className={classes.UserControls}>
+        <>
             <button
                 className={classes.Heart}
                 type='button'
@@ -34,12 +34,13 @@ const User = props => {
             </div>
             <button
                 type='button'
-                title='User'>
+                title='User'
+                className={classes.User}>
                 <FontAwesomeIcon 
                     className='FontAwesomeIcon'
                     icon={faUser}/>
             </button>
-        </div>
+        </>
     );
 };
 

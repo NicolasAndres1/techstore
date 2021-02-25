@@ -1,0 +1,12 @@
+.input {
+    font-size: medium;
+    color: white;
+    padding: .5em 1em;
+    border: 1px solid white;
+    border-radius: 25px;
+    background: black;
+}
+
+.input::-webkit-input-placeholder {
+    color: white;
+}

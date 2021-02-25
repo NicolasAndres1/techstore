@@ -32,6 +32,10 @@
     color: white;
 }
 
+.Search {
+    margin-right: 10px;
+}
+
 @media (max-width: 499px) {
     .Menu {
         display: none;
@@ -43,6 +47,10 @@
 
     .Controls {
         display: none;
+    }
+
+    .Search div {
+        margin: 50px;
     }
 }
 
