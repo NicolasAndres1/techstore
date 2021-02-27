@@ -16,15 +16,19 @@
 }
 
 .signup-form-wrapper {
+    width: 50%;
     display: flex;
     justify-content: center;
     margin: 20px auto;
 }
 
-.signup-form {
-    width: 100%;
+.signup-form-wrapper .signup-form {
+    padding: 20px 10px;
+}
+
+.signup-form input {
+    width: 60%;
     margin: 10px auto;
-    margin-left: 1px;
 }
 
 .text-near-signup {

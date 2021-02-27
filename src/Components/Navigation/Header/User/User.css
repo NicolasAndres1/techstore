@@ -18,7 +18,7 @@
 .login-section {
     position: absolute;
     background-color: black;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .show-login-section {

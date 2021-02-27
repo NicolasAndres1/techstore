@@ -6,8 +6,12 @@ const input = props => {
 
     return (
         <input 
+            className='input'
+            type={props.type}
             placeholder={props.placeholder}
-            className='input'/>
+            required={props.required}
+            autoFocus={props.autoFocus}
+            onChange={props.onChange}/>
     );
 };
 

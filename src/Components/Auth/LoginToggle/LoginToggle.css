@@ -20,3 +20,12 @@
 .login-block button {
     margin: 10px 0;
 }
+
+.signup-section {
+    margin: 10px 0;
+}
+
+.signup-section a {
+    margin-left: 10px;
+    color: white;
+}

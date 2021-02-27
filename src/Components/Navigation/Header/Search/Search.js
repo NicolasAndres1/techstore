@@ -20,10 +20,14 @@ const Search = props => {
     return (
         <div className='search'>
             <div className={showInputSearchClasses}>
-                <Input placeholder='What are you looking for?'/>
+                <Input 
+                    type='text'
+                    placeholder='What are you looking for?'/>
             </div>
             <div className='search-input-web-size'>
-                <Input placeholder='What are you looking for?'/>
+                <Input 
+                    type='text'
+                    placeholder='What are you looking for?'/>
             </div>
             <button
                 onClick={toggleShowInputSearch}

@@ -2,10 +2,10 @@ import React, { useContext, useState } from 'react'
 import classnames from 'classnames';
 
 import './User.css';
-import { CartContext } from '../../../../context/CartContext';
+import { CartContext } from '../../../../contexts/CartContext';
 import { faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Login from '../../../Auth/Login/Login';
+import Login from '../../../Auth/LoginToggle/LoginToggle';
 
 const User = props => {
     const [cart, setCart] = useContext(CartContext);
@@ -46,7 +46,9 @@ const User = props => {
                     icon={faUser}/>
             </button>
             <div className={isLoginSectionOpenClasses}>
-                <Login />
+                <Login 
+                    open={isLoginSectionOpen}
+                    closed={toggleIsLoginSectionOpen}/>
             </div>
         </>
     );

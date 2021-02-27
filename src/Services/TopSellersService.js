@@ -1,6 +1,6 @@
-import firebase from '../Config/firebaseConfig';
+import { firebaseDb } from '../Config/firebaseConfig';
 
-const db = firebase.ref('/topSellers');
+const db = firebaseDb.ref('/topSellers');
 
 const getAll = () => db;
 const getById = (id) => db.orderByChild('id').equalTo(id);

@@ -1,6 +1,6 @@
-import firebase from '../Config/firebaseConfig';
+import { firebaseDb } from '../Config/firebaseConfig';
 
-const db = firebase.ref('/bestDeals');
+const db = firebaseDb.ref('/bestDeals');
 
 const getAll = () => db;
 const getById = (key) => db.equalTo(key);

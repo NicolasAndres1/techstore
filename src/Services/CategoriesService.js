@@ -1,6 +1,6 @@
-import firebase from '../Config/firebaseConfig';
+import { firebaseDb } from '../Config/firebaseConfig';
 
-const db = firebase.ref('/categories');
+const db = firebaseDb.ref('/categories');
 
 const getAllCategories = () => db.orderByChild('position');
 
