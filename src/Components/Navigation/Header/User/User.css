@@ -15,19 +15,11 @@
     font-size: xx-small;
 }
 
-.login-section {
+/* .show-login-section {
     position: absolute;
     background-color: black;
     transition: transform 0.5s ease;
-}
-
-.show-login-section {
-    transform: translateY(74%);
-}
-
-.hide-login-section {
-    transform: translateY(-400%);
-}
+} */
 
 @media (max-width: 480px) {
     .user {

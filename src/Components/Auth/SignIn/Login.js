@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import firebase ,{ firebaseAuth } from '../../../Config/firebaseConfig';
 import { Redirect } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
+import UserService from '../../../Services/UserService';
 
 import './Login.css';
 import Input from '../../Input/Input';
@@ -15,37 +16,6 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    const [hasAccount, setHasAccount] = useState(false);
-
-    const clearInputs = () => {
-        setEmail('');
-        setPassword('');
-    };
-
-    const clearErrors = () => {
-        setEmailError('');
-        setPasswordError('');
-    };
-
-    const handleLogout = () => {
-        firebaseAuth.signOut();
-    };
-
-    const authListener = () => {
-        firebaseAuth.onAuthStateChanged(user => {
-            if(user) {
-                clearInputs();
-                setUser(user);
-            }
-            else {
-                setUser('');
-            }
-        })
-    };
-
-    useEffect(() => {
-        authListener();
-    }, []);
 
     const handleLogin = () => {
         clearErrors();
@@ -66,6 +36,40 @@ const Login = () => {
                 };
             });
     };
+
+    const clearInputs = () => {
+        setEmail('');
+        setPassword('');
+    };
+
+    const clearErrors = () => {
+        setEmailError('');
+        setPasswordError('');
+    };
+
+    const authListener = () => {
+        firebaseAuth.onAuthStateChanged(user => {
+            if(user) {
+                clearInputs();
+                UserService.getUserDataByUid(user.uid)
+                    .on('value', userChange);
+            }
+            else {
+                setUser('');
+            }
+        })
+    };
+
+    const userChange = (items) => {
+        items.forEach(item => {
+            let data = item.val();
+            setUser(data);
+        });
+    }
+
+    useEffect(() => {
+        authListener();
+    }, []);
 
     return (
         <>

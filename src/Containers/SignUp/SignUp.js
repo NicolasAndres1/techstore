@@ -16,7 +16,6 @@ const SignUp = props => {
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
-    const [hasAccount, setHasAccount] = useState(false);
 
     const clearInputs = () => {
         setEmail('');
@@ -32,12 +31,14 @@ const SignUp = props => {
         clearErrors();
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .then((userCreated) => {
-                const uid = userCreated.user.uid;
-                saveUserOnDatabase({
-                    uid: uid,
+                const userToSave = {
+                    uid: userCreated.user.uid,
+                    lastName: lastName,
                     firstName: firstName,
-                    lastName: lastName
-                });
+                    email: userCreated.user.email 
+                }
+                authListener(userToSave);
+                saveUserOnDatabase(userToSave);
             })
             .catch(err => {
                 switch(err.code) {
@@ -61,21 +62,17 @@ const SignUp = props => {
                 console.log('fallo')
             )
 
-    const authListener = () => {
-        firebaseAuth.onAuthStateChanged(user => {
-            if(user) {
+    const authListener = (userToSave) => {
+        firebaseAuth.onAuthStateChanged(userAuth => {
+            if(userAuth) {
                 clearInputs();
-                setUser(user);
+                setUser(userToSave);
             }
             else {
                 setUser('');
             }
         })
     }
-
-    useEffect(() => {
-        authListener();
-    }, []);
 
     return (
         <>

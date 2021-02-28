@@ -15,12 +15,6 @@ const User = props => {
 
     const toggleIsLoginSectionOpen = () => setIsLoginSectionOpen(!isLoginSectionOpen);
 
-    const isLoginSectionOpenClasses = classnames({
-        'login-section': true,
-        'show-login-section': isLoginSectionOpen,
-        'hide-login-section': !isLoginSectionOpen
-    });
-
     return (
         <>
             <div className='cart-button'>
@@ -45,11 +39,9 @@ const User = props => {
                     className='FontAwesomeIcon'
                     icon={faUser}/>
             </button>
-            <div className={isLoginSectionOpenClasses}>
-                <Login 
-                    open={isLoginSectionOpen}
-                    closed={toggleIsLoginSectionOpen}/>
-            </div>
+            <Login 
+                open={isLoginSectionOpen}
+                closed={toggleIsLoginSectionOpen}/>
         </>
     );
 };

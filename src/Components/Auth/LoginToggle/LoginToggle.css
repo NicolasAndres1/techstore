@@ -1,8 +1,13 @@
 .login-block {
+    position: absolute;
+    background-color: black;
     color: white;
     display: block;
     align-items: center;
     text-align: center;
+    padding: 10px 50px;
+    z-index: 200;
+    transition: all 0.3s ease;
 }
 
 .login-block h3 {
@@ -10,7 +15,7 @@
 }
 
 .login-form-section {
-    margin: 10px 0;
+    margin: 10px 50px;
 }
 
 .login-form-section input {
@@ -28,4 +33,26 @@
 .signup-section a {
     margin-left: 10px;
     color: white;
+}
+
+.open-login {
+    transform: translateY(69%);
+}
+
+.close-login {
+    transform: translateY(-100%);
+}
+
+.user-menu {
+}
+
+.user-menu a {
+    padding: 9px 93px;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.user-menu a:hover {
+    background-color: rgba(85, 84, 84, 0.685);
 }

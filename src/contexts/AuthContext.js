@@ -1,5 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { firebaseAuth } from '../Config/firebaseConfig';
+import UserService from '../Services/UserService';
 
 export const AuthContext = React.createContext();
 export const AuthProvider = (props) => {
@@ -7,10 +8,21 @@ export const AuthProvider = (props) => {
 
     useEffect(() => {
         const unsubscriber = firebaseAuth
-                                .onAuthStateChanged(user => setUser(user));
-
+                                .onAuthStateChanged(user => {
+                                    if(user) {
+                                        UserService.getUserDataByUid(user.uid)
+                                            .on('value', userChange)
+                                    }
+                                });
         return unsubscriber;
     }, []);
+
+    const userChange = (items) => {
+        items.forEach(item => {
+            let data = item.val();
+            setUser(data);
+        });
+    }
 
     return (
         <AuthContext.Provider value={[user, setUser]}>
