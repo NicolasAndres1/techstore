@@ -23,7 +23,8 @@ const LoginToggle = (props) => {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
-    const handleLogin = () => {
+    const handleLogin = (e) => {
+        e.preventDefault();
         clearErrors();
         firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
             .then(() =>
@@ -103,7 +104,7 @@ const LoginToggle = (props) => {
                         </>
                     )
                     : (
-                        <>
+                        <form onSubmit={handleLogin}>
                             <h3> Sign in to TechStore </h3>
                             <hr />
                             <div className='login-form-section'>
@@ -123,8 +124,7 @@ const LoginToggle = (props) => {
                             </div>
                             <div>
                                 <Button 
-                                    type='button'
-                                    onClick={handleLogin}>
+                                    type='submit'>
                                     Sign In
                                 </Button>
                             </div>
@@ -137,7 +137,7 @@ const LoginToggle = (props) => {
                                     Sign Up
                                 </Link>
                             </div>
-                        </> 
+                        </form> 
                     )
                 }
             </div>

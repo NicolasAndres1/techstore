@@ -17,7 +17,8 @@ const Login = () => {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
-    const handleLogin = () => {
+    const handleLogin = (e) => {
+        e.preventDefault();
         clearErrors();
         firebaseAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
             .then(() => 
@@ -73,7 +74,7 @@ const Login = () => {
 
     return (
         <>
-            <div className='signup'>
+            <form onSubmit={handleLogin} className='signup'>
                 <div className='logo-wrapper'>
                     <Logo />
                 </div>
@@ -99,8 +100,7 @@ const Login = () => {
                     ? (
                         <>
                             <Button 
-                                type='button'
-                                onClick={handleLogin}>
+                                type='submit'>
                                 Sign In
                             </Button>
                             <div className='text-near-signup'>
@@ -112,7 +112,7 @@ const Login = () => {
                         <Redirect to='/home' />
                     )
                 }
-            </div>
+            </form>
         </>
     );
 }
