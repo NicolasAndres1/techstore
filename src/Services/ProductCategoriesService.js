@@ -1,6 +1,6 @@
-import firebase from './firebaseConfig';
+import { firebaseDb } from '../Config/firebaseConfig';
 
-const db = firebase.ref('/productCategories');
+const db = firebaseDb.ref('/productCategories');
 
 const getAll = () => db;
 

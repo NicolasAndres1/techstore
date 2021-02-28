@@ -6,7 +6,7 @@ export const CartProvider = (props) => {
 
     return (
         <CartContext.Provider value={[cart, setCart]}>
-            { props.children };
+            { props.children }
         </CartContext.Provider>
     );
 };

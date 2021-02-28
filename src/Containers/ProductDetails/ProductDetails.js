@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
-import { CartContext } from '../../context/CartContext';
+import { CartContext } from '../../contexts/CartContext';
 
 import ProductService from '../../Services/ProductsService';
 

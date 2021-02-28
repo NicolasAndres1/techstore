@@ -61,12 +61,6 @@ const Home = props => {
 
         setBestDeals(bestDealsArray);
     };
-
-    // const jejoz = () => TopSellersService.getById(1)
-    //                     .on('value', ahre,
-    //                     (error) => console.log('fallo'))
-    
-    
     
     return (
         <>

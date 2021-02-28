@@ -1,8 +1,4 @@
-.Search {
-    display: flex;
-}
-
-.Searchbar {
+.input {
     font-size: medium;
     color: white;
     padding: .5em 1em;
@@ -11,6 +7,6 @@
     background: black;
 }
 
-.SearchButton {
-    margin-left: 10px;
+.input::-webkit-input-placeholder {
+    color: white;
 }

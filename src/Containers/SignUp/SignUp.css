@@ -1,0 +1,42 @@
+.signup {
+    text-align: center;
+    display: block;
+    padding: 15px 0;
+}
+
+.logo-wrapper {
+    justify-content: center;
+    height: 120px;
+    width: 200px;
+}
+
+.logo-wrapper img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.signup-form-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.signup-form {
+    width: 100%;
+    margin: 10px auto;
+    margin-left: 1px;
+}
+
+.text-near-signup {
+    margin: 10px auto;
+    width: 30%;
+}
+
+.text-near-signup a {
+    color: black;
+    font-weight: bold;
+}
+
+.signup button {
+    width: 10%;
+}
