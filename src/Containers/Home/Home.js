@@ -12,15 +12,12 @@ const Home = props => {
     const [topSellers, setTopSellers] = useState([]);
     const [bestDeals, setBestDeals] = useState([]);
 
-    /* FETCH TOP SELLERS ITEMS */
+    
     useEffect(() => {
         ProductService.getTopSellers()
             .once("value", onTopSellersChange);
-    }, []);
 
-    /* FETCH BEST DEALS ITEMS */
-    useEffect(() =>{ 
-        BestDealsService.getAll()
+        ProductService.getBestDeals()
             .once("value", onBestDealsChange);
     }, []);
 
@@ -52,7 +49,7 @@ const Home = props => {
                 id: key,
                 name: data.name,
                 img: data.img,
-                price: data.price,
+                price: data.currentPrice,
                 brand: data.brand,
                 stock: data.stock,
                 previousPrice: data.previousPrice

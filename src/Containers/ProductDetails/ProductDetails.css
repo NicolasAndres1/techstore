@@ -115,6 +115,10 @@ hr {
         width: auto;
     }
 
+    .item-section .item-info {
+        max-width: 40%;
+    }
+
     .img-wrapper img {
         height: 350px;
         width: 400px;
