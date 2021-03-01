@@ -1,0 +1,42 @@
+.category-wrapper {
+    padding: 16px 20px 16px 50px;
+}
+
+.category-items {
+    margin-top: 10px;
+}
+
+.product-filter .filter{
+    margin: 15px auto 10px 10px;
+    background-color: white;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 73%;
+}
+
+@media (min-width: 499px) {
+    .products-wrapper {
+        display: flex;
+    }
+
+    .category-items {
+        margin: auto;
+        width: 80%;
+        display: flex;
+    }
+
+    .product-filter {
+        max-width: 30%;
+    }
+
+    .product-filter .filter{
+        margin: 15px auto 10px 10px;
+        background-color: white;
+        border: 1px solid white;
+        padding: 10px;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+}

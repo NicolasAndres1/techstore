@@ -87,26 +87,34 @@ const ProductDetails = props => {
                                     <CreditCards />
                                 </div>
                             </div>
-                            <hr />
-                            <div className='product-buy'> 
-                                <div> Quantity: </div>
-                                <QuantitySelector 
-                                    value={productQuantity}
-                                    onClick={productQuantityChanged}/>
-                                <div className='add-cart-wrapper'>
-                                    <Button 
-                                        onClick={addToCart}> 
-                                        <div className='add-cart-button'>
-                                            <div>
-                                                ADD TO CART
+                            {product.stock
+                                ? (
+                                    <>
+                                        <hr />
+                                        <div className='product-buy'> 
+                                            <div> Quantity: </div>
+                                            <QuantitySelector 
+                                                value={productQuantity}
+                                                onClick={productQuantityChanged}/>
+                                            <div className='add-cart-wrapper'>
+                                                <Button 
+                                                    onClick={addToCart}> 
+                                                    <div className='add-cart-button'>
+                                                        <div>
+                                                            ADD TO CART
+                                                        </div>
+                                                        <FontAwesomeIcon 
+                                                            className='cart-icon'
+                                                            icon={faShoppingCart}/>
+                                                    </div>
+                                                </Button>
                                             </div>
-                                            <FontAwesomeIcon 
-                                                className='cart-icon'
-                                                icon={faShoppingCart}/>
                                         </div>
-                                    </Button>
-                                </div>
-                            </div>
+                                    </>
+                                )
+                                : null
+                            }
+                            
                         </div>
                     </div>
                     <div>

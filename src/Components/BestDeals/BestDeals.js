@@ -8,7 +8,7 @@ const BestDeals = props => (
     <ul className={classes.BestDeals}>
         {props.bestDeals.map((data, key) => {
             const url = data.name.replace(/\s+/g, '-');
-            console.log(data);
+
             return (
                 <Link  
                     key={key}

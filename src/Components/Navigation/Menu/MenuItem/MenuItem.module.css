@@ -67,5 +67,8 @@
     }
 
     .DropdownContent .SubCategory:hover {background-color: #ddd;}
-    .Dropdown:hover .DropdownContent {display: block;}
+    .Dropdown:hover .DropdownContent {
+        display: block;
+        margin-left: -20px
+    }
 }
