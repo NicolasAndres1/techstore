@@ -20,9 +20,6 @@ const Header = props => {
                 <Menu />
             </nav>
             <div className={classes.Controls}>
-                <div className={classes.Search}>
-                    <Search />
-                </div>
                 <User />
             </div>
         </header>
