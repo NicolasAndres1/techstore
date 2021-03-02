@@ -11,18 +11,12 @@ export const AuthProvider = (props) => {
                                 .onAuthStateChanged(user => {
                                     if(user) {
                                         UserService.getUserDataByUid(user.uid)
-                                            .on('value', userChange)
+                                            .then(res => setUser(res))
+                                            .catch(err => console.error(err));
                                     }
                                 });
         return unsubscriber;
     }, []);
-
-    const userChange = (items) => {
-        items.forEach(item => {
-            let data = item.val();
-            setUser(data);
-        });
-    }
 
     return (
         <AuthContext.Provider value={[user, setUser]}>

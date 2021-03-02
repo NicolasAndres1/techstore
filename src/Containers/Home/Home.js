@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import BestDealsService from "../../Services/BestDealsService";
-import ProductService from '../../Services/ProductsService';
+import TopSellersService from '../../Services/TopSellersService';
 
 import classes from './Home.module.css';
 import CardCarousel from '../../Components/Carousels/CardCarousel/CardCarousel';
@@ -14,50 +14,14 @@ const Home = props => {
 
     
     useEffect(() => {
-        ProductService.getTopSellers()
-            .once("value", onTopSellersChange);
+        TopSellersService.getAll()
+            .then(res => setTopSellers(res))
+            .catch(err => console.error(err));
 
-        ProductService.getBestDeals()
-            .once("value", onBestDealsChange);
+        BestDealsService.getAll()
+            .then(res => setBestDeals(res))
+            .catch(err => console.error(err));
     }, []);
-
-    const onTopSellersChange = (items) => {
-        const topSellersArray = [];
-        items.forEach((item) => {
-            let key = item.key;
-            let data = item.val();
-
-            topSellersArray.push({
-                key: key,
-                id: data.id,
-                img: data.img,
-                name: data.name,
-                price: data.price
-            });
-        });
-        
-        setTopSellers(topSellersArray);
-    };
-
-    const onBestDealsChange = (items) => {
-        const bestDealsArray = [];
-        items.forEach((item) => {
-            let key = item.key;
-            let data = item.val();
-
-            bestDealsArray.push({
-                id: key,
-                name: data.name,
-                img: data.img,
-                price: data.currentPrice,
-                brand: data.brand,
-                stock: data.stock,
-                previousPrice: data.previousPrice
-            });
-        });
-
-        setBestDeals(bestDealsArray);
-    };
     
     return (
         <>

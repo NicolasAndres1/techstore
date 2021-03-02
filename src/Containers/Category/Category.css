@@ -6,14 +6,24 @@
     margin-top: 10px;
 }
 
-.product-filter .filter{
-    margin: 15px auto 10px 10px;
-    background-color: white;
-    border: 1px solid white;
-    padding: 10px;
-    border-radius: 5px;
-    width: 73%;
+.products-wrapper {
+    max-width: 100%;
 }
+
+.product-filter {
+    margin: auto;
+    padding: 10px;
+}
+
+.product-filter .filter-button {
+    max-width: 85%;
+}
+
+.product-filter .filter-button button {
+    width: 100%;
+}
+
+
 
 @media (min-width: 499px) {
     .products-wrapper {

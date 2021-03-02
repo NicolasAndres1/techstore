@@ -1,11 +1,11 @@
 import { firebaseDb } from '../Config/firebaseConfig';
 
-const db = firebaseDb.ref('/bestDeals');
+const docRef = firebaseDb.collection('/bestDeals');
 
-const getAll = () => db;
-const getById = (key) => db.equalTo(key);
+const getAll = () => 
+    docRef.get()
+        .then(res => res.docs.map(doc => doc.data()));
 
 export default {
-    getAll,
-    getById
+    getAll
 }

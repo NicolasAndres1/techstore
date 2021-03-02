@@ -1,8 +1,0 @@
-.menu {
-    font-size: small;
-    display: flex;
-    align-items: center;
-    list-style: none;
-    flex-flow: column;
-    padding: 0;
-}

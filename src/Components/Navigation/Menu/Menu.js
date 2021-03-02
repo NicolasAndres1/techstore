@@ -10,23 +10,10 @@ const Menu = props => {
 
     useEffect(() => 
         CategoriesServices.getAllCategories()
-            .on('value', categoriesChange)
-        , []);
+            .then(res => setCategories(res))
+            .catch(err => console.error(err))
+    , []);
 
-    const categoriesChange = (items) => {
-        const categoriesArray = [];
-        items.forEach((item) => {
-            let data = item.val();
-
-            categoriesArray.push({
-                title: data.title,
-                link: data.link,
-                subCategories: data.subCategories
-            });
-        });
-        
-        setCategories(categoriesArray);
-    };
 
     return (
         <ul className={classes.Menu}>

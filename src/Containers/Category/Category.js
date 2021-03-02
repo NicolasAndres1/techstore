@@ -5,54 +5,52 @@ import './Category.css';
 import ProductService from '../../Services/ProductsService';
 import ProductsContainer from '../../Components/ProductsContainer/ProductsContainer';
 import ProductFilter from '../../Components/ProductFilter/ProductFilter';
+import Sidedrawer from '../../Components/Sidedrawer/Sidedrawer';
+import SidedrawerFilters from '../../Components/Filters/SidedrawerFilters/SidedrawerFilters';
 
 const Category = props => {
-    let { category } = useParams();
+    let { category, subCategory } = useParams();
     const [categoryItems, setCategoryItems] = useState([]);
+    const [sidedrawerIsVisible, setSidedrawerIsVisible] = useState(false);
 
     useEffect(() => {
-        ProductService.getByCategory(props.match.params.category)
-            .on('value', categoryItemsChanges);
-    }, [category]);
+        ProductService.getByCategory(props.match.params.subCategory)
+            .then(res => setCategoryItems(res))
+            .catch(err => console.error(err));
+    }, [subCategory]);
 
-    const categoryItemsChanges = (items) => {
-        const categoriesItemsArray = [];
+    const showCategory = () => subCategory = subCategory.replace('-',' ').toUpperCase();
 
-        items.forEach(item => {
-            let key = item.key;
-            let data = item.val();
-
-            categoriesItemsArray.push({
-                id: key,
-                img: data.img,
-                name: data.name,
-                price: data.price,
-                stock: data.stock
-            });
-        })
-
-        setCategoryItems(categoriesItemsArray);
-    }
-
-    const showCategory = () => category = category.replace('-',' ').toUpperCase();
+    const sideDrawerCloseHandler = () => setSidedrawerIsVisible(false);
+    const sideDrawerToggleHandler = () => setSidedrawerIsVisible(!sidedrawerIsVisible);
 
     return (
-        <div className='category-wrapper'>
-            <h2> { showCategory() } </h2>
-            <hr />
-            <div className='products-wrapper'>
-                <div className='product-filter'>
-                    <ProductFilter/>
-                </div>
-                {categoryItems ? 
-                    <div className='category-items'>
-                        <ProductsContainer 
-                            items={categoryItems}/>
+        <>
+            {<Sidedrawer
+                open={sidedrawerIsVisible}
+                closed={sideDrawerCloseHandler}>
+                    <SidedrawerFilters 
+                        isVisible={sidedrawerIsVisible}
+                        category={category}
+                        subCategory={subCategory}/>
+            </Sidedrawer>}
+            <div className='category-wrapper'>
+                <h2> { showCategory() } </h2>
+                <hr />
+                <div className='products-wrapper'>
+                    <div className='product-filter'>
+                        <ProductFilter clicked={sideDrawerToggleHandler}/>
                     </div>
-                    : null   
-                }
+                    {categoryItems ? 
+                        <div className='category-items'>
+                            <ProductsContainer 
+                                items={categoryItems}/>
+                        </div>
+                        : null   
+                    }
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 

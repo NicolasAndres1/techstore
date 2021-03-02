@@ -49,7 +49,8 @@ const LoginToggle = (props) => {
             if(user) {
                 clearInputs();
                 UserService.getUserDataByUid(user.uid)
-                    .on('value', userChange);
+                    .then(res => setUser(res))
+                    .catch(err => console.error(err));
             }
             else {
                 setUser('');
@@ -60,13 +61,6 @@ const LoginToggle = (props) => {
     useEffect(() => {
         authListener();
     }, []);
-
-    const userChange = (items) => {
-        items.forEach(item => {
-            let data = item.val();
-            setUser(data);
-        });
-    }
 
     const clearInputs = () => {
         setEmail('');

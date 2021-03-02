@@ -20,22 +20,9 @@ const ProductDetails = props => {
 
     useEffect(() => {
         ProductService.getById(props.match.params.id)
-            .on('value', onProductChange);
+            .then(res => setProduct(res))
+            .catch(err => console.error(err));
     }, []);
-
-    const onProductChange = (items) => {
-        items.forEach((item) => {
-            let data = item.val();
-
-            setProduct({
-                id: data.id,
-                name: data.name,
-                img: data.img,
-                price: data.price,
-                stock: data.stock
-            });
-        });
-    };
 
     const productQuantityChanged = props => {
         setProductQuantity(props.target.value)

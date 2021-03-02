@@ -27,7 +27,7 @@ const MenuItem = props => {
                             return (
                                 <Link 
                                     key={key}
-                                    to={`/category/${item.link}`}
+                                    to={`/${props.link}/${item.link}`}
                                     className={classes.SubCategory}>
                                         { item.title }
                                 </Link>

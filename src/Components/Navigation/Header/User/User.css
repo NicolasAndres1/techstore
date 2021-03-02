@@ -15,12 +15,6 @@
     font-size: xx-small;
 }
 
-/* .show-login-section {
-    position: absolute;
-    background-color: black;
-    transition: transform 0.5s ease;
-} */
-
 @media (max-width: 480px) {
     .user {
         display: none;
