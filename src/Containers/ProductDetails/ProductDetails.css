@@ -11,6 +11,7 @@ hr {
 .item-section {
     height: 100%;
     width: auto;
+    background-color: white !important;
 }
 
 /* BREADCRUMB */
@@ -122,7 +123,7 @@ hr {
     .img-wrapper img {
         height: 350px;
         width: 400px;
-        margin-left: 200px;
+        margin-left: 50px;
     }
 
     .item-section .item-stock {

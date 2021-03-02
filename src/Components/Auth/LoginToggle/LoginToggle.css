@@ -31,6 +31,7 @@
 }
 
 .signup-section a {
+    text-decoration: underline;
     margin-left: 10px;
     color: white;
 }

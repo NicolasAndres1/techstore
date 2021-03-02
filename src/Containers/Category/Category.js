@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import './Category.css';
 import ProductService from '../../Services/ProductsService';
 import ProductsContainer from '../../Components/ProductsContainer/ProductsContainer';
-import ProductFilter from '../../Components/ProductFilter/ProductFilter';
+import ProductFilter from '../../Components/Filters/ProductFilter';
 import Sidedrawer from '../../Components/Sidedrawer/Sidedrawer';
 import SidedrawerFilters from '../../Components/Filters/SidedrawerFilters/SidedrawerFilters';
 
@@ -36,7 +36,6 @@ const Category = props => {
             </Sidedrawer>}
             <div className='category-wrapper'>
                 <h2> { showCategory() } </h2>
-                <hr />
                 <div className='products-wrapper'>
                     <div className='product-filter'>
                         <ProductFilter clicked={sideDrawerToggleHandler}/>

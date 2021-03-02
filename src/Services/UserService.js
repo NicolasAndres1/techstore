@@ -7,16 +7,17 @@ const getUserDataByUid = (uid) =>
         .get()
         .then(res => res.data());
     
-// const saveUser = (userData) => db.child(userData.uid)
-//                                  .set({
-//                                     uid: userData.uid,
-//                                     firstName: userData.firstName,
-//                                     lastName: userData.lastName,
-//                                     email: userData.email,
-//                                     cartItems: {}
-//                                  });
+const saveUser = (userData) => 
+    docRef.doc(userData.uid)
+        .set({
+            uid: userData.uid,
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            email: userData.email,
+            cartItems: {}
+        });
 
 export default {
-    getUserDataByUid
-    // saveUser
+    getUserDataByUid,
+    saveUser
 }

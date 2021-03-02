@@ -9,7 +9,7 @@ export const AuthProvider = (props) => {
     useEffect(() => {
         const unsubscriber = firebaseAuth
                                 .onAuthStateChanged(user => {
-                                    if(user) {
+                                    if(user) {;
                                         UserService.getUserDataByUid(user.uid)
                                             .then(res => setUser(res))
                                             .catch(err => console.error(err));
