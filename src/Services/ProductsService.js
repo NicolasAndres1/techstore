@@ -12,10 +12,15 @@ const getByCategory = (category) =>
         .get()
         .then(res => res.docs.map(doc => doc.data()));
 
-// const getByItemType = (itemType) => db.child(PRODUCTS).orderByChild('itemType').equalTo(itemType);
+
+const getByItemTypes = (itemType) => 
+    docRef.where('subCategory', 'in', itemType)
+        .get()
+        .then(res => res.docs.map(doc => doc.data()))
+
 
 export default {
     getById,
-    getByCategory
-    // getByItemType
+    getByCategory,
+    getByItemTypes
 }

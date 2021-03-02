@@ -1,12 +1,70 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ProductsService from '../../../Services/ProductsService';
 
 import './FilterItems.css';
+import Button from '../../Button/CustomButton';
 
-const FilterItems = props => {
+const FilterItems = ({itemTypes, close}) => {
+    const [itemTypesState, setItemTypesState] = useState([]);
+
+    useEffect(() => {
+        const itemTypesArray = [];
+
+        itemTypes.forEach(item => {
+            itemTypesArray.push({
+                item: item,
+                isChecked: false
+            })
+        });
+
+        setItemTypesState(itemTypesArray);
+    }, [itemTypes]);
+
+    const handleCheck = id => {
+        const itemTypesArray = itemTypesState;
+        itemTypesArray[id].isChecked = !itemTypesArray[id].isChecked;
+        setItemTypesState(itemTypesArray);
+    };
+
+    const applyFiltersHandler = props => {
+        close(props);
+        const itemTypesArray = itemTypesState
+                                .filter(item => item.isChecked)
+                                .map(({item}) => item);
+        ProductsService.getByItemTypes(itemTypesArray)
+            .then(res => console.log(res))
+            .catch(err => console.error(err));
+    }
 
     return (
         <>
-
+            {itemTypesState
+                ? (
+                    <>
+                        <ul className='filter-list'>
+                            {itemTypesState.map((data, key) => 
+                                <li 
+                                    key={key}
+                                    className='filter-item'>
+                                    <label 
+                                        className='filter-selector'
+                                        onChange={e => handleCheck(key)}>
+                                        <input 
+                                            type='checkbox' 
+                                            value={data.item}/>
+                                        {data.item}
+                                    </label>
+                                </li>
+                            )}
+                        </ul>
+                        <hr />
+                        <div className='apply-filters-button'>
+                            <Button onClick={applyFiltersHandler}> Apply </Button>
+                        </div>
+                    </>
+                )
+                : null
+            }
         </>
     );
 };

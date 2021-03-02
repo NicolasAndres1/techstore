@@ -19,26 +19,28 @@ const Category = props => {
             .catch(err => console.error(err));
     }, [subCategory]);
 
-    const showCategory = () => subCategory = subCategory.replace('-',' ').toUpperCase();
-
     const sideDrawerCloseHandler = () => setSidedrawerIsVisible(false);
     const sideDrawerToggleHandler = () => setSidedrawerIsVisible(!sidedrawerIsVisible);
 
     return (
         <>
-            {<Sidedrawer
+            <Sidedrawer
                 open={sidedrawerIsVisible}
                 closed={sideDrawerCloseHandler}>
                     <SidedrawerFilters 
                         isVisible={sidedrawerIsVisible}
                         category={category}
-                        subCategory={subCategory}/>
-            </Sidedrawer>}
+                        subCategory={subCategory}
+                        closed={sideDrawerCloseHandler}/>
+            </Sidedrawer>
             <div className='category-wrapper'>
-                <h2> { showCategory() } </h2>
+                <h2> { subCategory.replace('-',' ').toUpperCase() } </h2>
                 <div className='products-wrapper'>
                     <div className='product-filter'>
-                        <ProductFilter clicked={sideDrawerToggleHandler}/>
+                        <ProductFilter 
+                            category={category}
+                            subCategory={subCategory}
+                            clicked={sideDrawerToggleHandler}/>
                     </div>
                     {categoryItems ? 
                         <div className='category-items'>

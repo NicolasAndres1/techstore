@@ -8,8 +8,12 @@ const getAllCategories = () =>
         .get()
         .then(res => res.docs.map(doc => doc.data()));
 
-// const getItemTypesByCategory = (category, subCategory) => db.orderByChild('link');
+const getItemTypesByCategory = (category, subCategory) => 
+    docRef.doc(category)
+        .get()
+        .then(res => res.data().subCategories[subCategory].itemTypes)
 
 export default {
-    getAllCategories
+    getAllCategories,
+    getItemTypesByCategory
 }
