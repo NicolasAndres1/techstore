@@ -44,3 +44,9 @@
     margin-top: 10px;
 }
 
+@media (min-width: 480px) {
+    .Card {
+        max-width: 100%;
+        min-width: 20%;
+    }
+}

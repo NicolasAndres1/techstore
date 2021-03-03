@@ -12,9 +12,10 @@ import CreditCards from '../../Components/CreditCards/CreditCards';
 import QuantitySelector from '../../Components/QuantitySelector/QuantitySelector';
 import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Spinner from '../../Components/Spinner/Spinner';
 
 const ProductDetails = props => {
-    const [product, setProduct] = useState({});
+    const [product, setProduct] = useState();
     const [productQuantity, setProductQuantity] = useState(1);
     const [cart, setCart] = useContext(CartContext);
 
@@ -25,10 +26,11 @@ const ProductDetails = props => {
     }, []);
 
     const productQuantityChanged = props => {
-        setProductQuantity(props.target.value)
+        setProductQuantity(parseInt(props))
     };
 
     const addToCart = () => {
+        console.log(productQuantity);
         const toAdd = {
             productId: product.id,
             quantity: productQuantity
@@ -40,7 +42,7 @@ const ProductDetails = props => {
         <>
             {product ?
                 <div className='content'>
-                    <div className='breadcrumb'> breadcrumb </div>
+                    {/* <div className='breadcrumb'> breadcrumb </div> */}
                     <div className='item-section'> 
                         <div className='img-wrapper'>
                             <img src={product.img}/>
@@ -74,10 +76,10 @@ const ProductDetails = props => {
                                     <CreditCards />
                                 </div>
                             </div>
+                            <hr />
                             {product.stock
                                 ? (
                                     <>
-                                        <hr />
                                         <div className='product-buy'> 
                                             <div> Quantity: </div>
                                             <QuantitySelector 
@@ -99,16 +101,20 @@ const ProductDetails = props => {
                                         </div>
                                     </>
                                 )
-                                : null
+                                : <h4 className='stay-tuned-label'> STAY TUNED, WE WILL HAVE STOCK SOON! </h4>
                             }
                             
                         </div>
                     </div>
-                    <div>
+                    <hr />
+                    {/* <div>
                         menus
-                    </div>
-                </div> :
-                null}
+                    </div> */}
+                </div> 
+                : <div className='spinner'>
+                    <Spinner />
+                  </div> 
+            }
         </>
     );
 };

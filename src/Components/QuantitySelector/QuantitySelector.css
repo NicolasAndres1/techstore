@@ -52,6 +52,21 @@
     transform: translateX(-100%) translateY(500%);
 }
 
+.apply-quantity-button {
+    margin-left: 10px;
+    border: 1px solid rgb(94, 9, 128);
+    border-radius: 35px;
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+}
+
+.apply-quantity-button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
 @media (min-width: 499px) {
     .backdrop {
         display: none;
@@ -63,7 +78,7 @@
     }
 
     .dropdown {
-        width: max-content;
+        width: 11%;
         z-index: 200;
         position: relative;   
         margin-right: auto;
@@ -80,5 +95,17 @@
     .close-dropdown {
         transform: none;
         display: none;
+    }
+
+    .custom-quantity-selector {
+        width: 100%;
+    }
+
+    .custom-quantity-selector input {
+        width: 50%;
+    }
+
+    .apply-quantity-button {
+        padding: 2px 6px;
     }
 }

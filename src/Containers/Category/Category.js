@@ -7,6 +7,7 @@ import ProductsContainer from '../../Components/ProductsContainer/ProductsContai
 import ProductFilter from '../../Components/Filters/ProductFilter';
 import Sidedrawer from '../../Components/Sidedrawer/Sidedrawer';
 import SidedrawerFilters from '../../Components/Filters/SidedrawerFilters/SidedrawerFilters';
+import Spinner from '../../Components/Spinner/Spinner';
 
 const Category = props => {
     let { category, subCategory } = useParams();
@@ -56,12 +57,12 @@ const Category = props => {
                             filtersChanges={filtersToApply}
                             searchByCategory={searchByCategory}/>
                     </div>
-                    {categoryItems ? 
+                    {categoryItems.length > 0 ? 
                         <div className='category-items'>
                             <ProductsContainer 
                                 items={categoryItems}/>
                         </div>
-                        : null   
+                        : null
                     }
                 </div>
             </div>

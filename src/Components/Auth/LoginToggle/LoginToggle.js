@@ -48,16 +48,18 @@ const LoginToggle = (props) => {
         firebaseAuth.onAuthStateChanged(user => {
             if(user) {
                 clearInputs();
-                UserService.getUserDataByUid(user.uid)
-                    .then(res => {
-                        setUser(res)
-                    })
-                    .catch(err => console.error(err));
+                setTimeout(() => {
+                    UserService.getUserDataByUid(user.uid)
+                        .then(res => {
+                            setUser(res)
+                        })
+                        .catch(err => console.error(err));
+                }, 1500);
             }
             else {
                 setUser('');
             }
-        })
+        });
     };
 
     useEffect(() => {

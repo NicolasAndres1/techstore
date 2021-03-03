@@ -33,11 +33,15 @@
     .category-items {
         margin: 10px 0;
         width: 80%;
-        display: flex;
+        /* display: flex; */
     }
 
     .product-filter {
         max-width: 30%;
+        margin-top: 0px;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
     }
 
     .product-filter .filter{
