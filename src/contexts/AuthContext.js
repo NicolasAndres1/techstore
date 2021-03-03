@@ -9,20 +9,14 @@ export const AuthProvider = (props) => {
     useEffect(() => {
         const unsubscriber = firebaseAuth
                                 .onAuthStateChanged(user => {
-                                    if(user) {
+                                    if(user) {;
                                         UserService.getUserDataByUid(user.uid)
-                                            .on('value', userChange)
+                                            .then(res => setUser(res))
+                                            .catch(err => console.error(err));
                                     }
                                 });
         return unsubscriber;
     }, []);
-
-    const userChange = (items) => {
-        items.forEach(item => {
-            let data = item.val();
-            setUser(data);
-        });
-    }
 
     return (
         <AuthContext.Provider value={[user, setUser]}>

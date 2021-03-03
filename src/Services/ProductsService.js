@@ -1,15 +1,26 @@
 import { firebaseDb } from '../Config/firebaseConfig';
 
-const db = firebaseDb.ref('/products');
+const docRef = firebaseDb.collection('/products');
 
-const getAll = () => db;
-const getById = (id) => db.child('products').orderByChild('id').equalTo(id);
-const getTopSellers = () => db.child('topSellers');
-const getNewReleases = () => db.child('newReleases');
+const getById = (id) =>
+    docRef.doc(id)
+        .get()
+        .then(res => res.data());
+
+const getByCategory = (category) => 
+    docRef.where('category', '==', category)
+        .get()
+        .then(res => res.docs.map(doc => doc.data()));
+
+
+const getByItemTypes = (itemType) => 
+    docRef.where('subCategory', 'in', itemType)
+        .get()
+        .then(res => res.docs.map(doc => doc.data()))
+
 
 export default {
-    getAll,
     getById,
-    getTopSellers,
-    getNewReleases
+    getByCategory,
+    getByItemTypes
 }

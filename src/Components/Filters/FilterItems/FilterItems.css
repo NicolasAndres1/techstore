@@ -1,0 +1,25 @@
+.filter-list {
+    display: initial;
+    color: white;
+    list-style: none;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.filter-item {
+    margin: 20px 0;
+}
+
+.filter-selector {
+    display: flex;
+    align-items: center;
+}
+
+.filter-selector input {
+    margin-right: 10px;
+}
+
+.apply-filters-button button {
+    margin: 10px;
+    width: 90%;
+}

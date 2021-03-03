@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import './QuantitySelector.css';
 
 import Backdrop from '../Backdrop/Backdrop';
+import Input from '../Input/Input';
 
 const QuantitySelector = ({value, onClick}) => {
     const [dropdownToggler, setDropdownToggler] = useState(false);
@@ -11,8 +12,8 @@ const QuantitySelector = ({value, onClick}) => {
 
     const toggleDropdown = () => setDropdownToggler(!dropdownToggler);
 
-    const sendQuantity = (props) => {
-        onClick(props);
+    const sendQuantity = (e) => {
+        onClick(e.target.value);
         toggleDropdown();
     };
 
@@ -26,6 +27,23 @@ const QuantitySelector = ({value, onClick}) => {
         'dropdown-arrow': true,
         'dropdown-arrow-up': dropdownToggler,
     });
+
+    const showSelectorHandler = () => setMoreThanFiveUnits(true);
+
+    const keyPressedHandler = (e) => {
+        if(e.code === 'Enter') {
+            onClick(e.target.value);
+            toggleDropdown();
+        };
+    };
+
+    const applyQuantityHandler = () => {
+        const inputQuantity = document.getElementById('inputQuantity').value;
+        if(inputQuantity > 0) {
+            onClick(inputQuantity);
+            toggleDropdown();
+        };
+    };
 
     return (
         <div className='quantity-selector'>
@@ -57,7 +75,25 @@ const QuantitySelector = ({value, onClick}) => {
                     5 units
                 </li>
                 <li>
-                    <button> More than 5 units </button>
+                    {moreThanFiveUnits
+                        ? <div className='custom-quantity-selector'>
+                            <small> Quantity: </small>
+                            <div>
+                                <Input 
+                                    id='inputQuantity'
+                                    type='number'
+                                    keyPressed={keyPressedHandler}/>
+                                <small 
+                                    onClick={applyQuantityHandler}
+                                    className='apply-quantity-button'>
+                                    {'>'}
+                                </small>
+                            </div>
+                          </div>
+                        : <button onClick={showSelectorHandler}> 
+                            More than 5 units 
+                          </button>
+                    }
                 </li>
             </ul>
         </div>

@@ -1,9 +1,19 @@
 import { firebaseDb } from '../Config/firebaseConfig';
 
-const db = firebaseDb.ref('/categories');
+const docRef = firebaseDb.collection('/categories');
 
-const getAllCategories = () => db.orderByChild('position');
+const getAllCategories = () => 
+    docRef
+        .orderBy('position')
+        .get()
+        .then(res => res.docs.map(doc => doc.data()));
+
+const getItemTypesByCategory = (category, subCategory) => 
+    docRef.doc(category)
+        .get()
+        .then(res => res.data().subCategories[subCategory].itemTypes)
 
 export default {
-    getAllCategories
+    getAllCategories,
+    getItemTypesByCategory
 }

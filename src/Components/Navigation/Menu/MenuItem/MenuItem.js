@@ -17,21 +17,20 @@ const MenuItem = props => {
     return (
         <li className={classes.MenuItem}>
             <div className={classes.Dropdown}>
-                <div 
-                    onClick={()=>props.history.push(`/${props.link}`)}> 
+                <Link 
+                    to={`/${props.link}`}> 
                     { props.title } 
-                </div>
+                </Link>
                 <div className={classes.DropdownContent}> 
                     {subCategories ?
                         subCategories.map((item, key) => {
                             return (
-                                <div 
+                                <Link 
                                     key={key}
-                                    onClick={()=>props.history.push(`/category/${item.link}`)}
+                                    to={`/${props.link}/${item.link}`}
                                     className={classes.SubCategory}>
                                         { item.title }
-                                    <div className={classes.VerticalLine}></div>
-                                </div>
+                                </Link>
                             )
                         }) :
                         null

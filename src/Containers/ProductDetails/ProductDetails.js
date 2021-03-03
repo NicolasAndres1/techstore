@@ -12,36 +12,25 @@ import CreditCards from '../../Components/CreditCards/CreditCards';
 import QuantitySelector from '../../Components/QuantitySelector/QuantitySelector';
 import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Spinner from '../../Components/Spinner/Spinner';
 
 const ProductDetails = props => {
-    const [product, setProduct] = useState({});
+    const [product, setProduct] = useState();
     const [productQuantity, setProductQuantity] = useState(1);
     const [cart, setCart] = useContext(CartContext);
 
     useEffect(() => {
         ProductService.getById(props.match.params.id)
-            .on('value', onProductChange);
+            .then(res => setProduct(res))
+            .catch(err => console.error(err));
     }, []);
 
-    const onProductChange = (items) => {
-        items.forEach((item) => {
-            let data = item.val();
-
-            setProduct({
-                id: data.id,
-                name: data.name,
-                img: data.img,
-                price: data.price,
-                stock: data.stock
-            });
-        });
-    };
-
     const productQuantityChanged = props => {
-        setProductQuantity(props.target.value)
+        setProductQuantity(parseInt(props))
     };
 
     const addToCart = () => {
+        console.log(productQuantity);
         const toAdd = {
             productId: product.id,
             quantity: productQuantity
@@ -53,7 +42,7 @@ const ProductDetails = props => {
         <>
             {product ?
                 <div className='content'>
-                    <div className='breadcrumb'> breadcrumb </div>
+                    {/* <div className='breadcrumb'> breadcrumb </div> */}
                     <div className='item-section'> 
                         <div className='img-wrapper'>
                             <img src={product.img}/>
@@ -88,32 +77,44 @@ const ProductDetails = props => {
                                 </div>
                             </div>
                             <hr />
-                            <div className='product-buy'> 
-                                <div> Quantity: </div>
-                                <QuantitySelector 
-                                    value={productQuantity}
-                                    onClick={productQuantityChanged}/>
-                                <div className='add-cart-wrapper'>
-                                    <Button 
-                                        onClick={addToCart}> 
-                                        <div className='add-cart-button'>
-                                            <div>
-                                                ADD TO CART
+                            {product.stock
+                                ? (
+                                    <>
+                                        <div className='product-buy'> 
+                                            <div> Quantity: </div>
+                                            <QuantitySelector 
+                                                value={productQuantity}
+                                                onClick={productQuantityChanged}/>
+                                            <div className='add-cart-wrapper'>
+                                                <Button 
+                                                    onClick={addToCart}> 
+                                                    <div className='add-cart-button'>
+                                                        <div>
+                                                            ADD TO CART
+                                                        </div>
+                                                        <FontAwesomeIcon 
+                                                            className='cart-icon'
+                                                            icon={faShoppingCart}/>
+                                                    </div>
+                                                </Button>
                                             </div>
-                                            <FontAwesomeIcon 
-                                                className='cart-icon'
-                                                icon={faShoppingCart}/>
                                         </div>
-                                    </Button>
-                                </div>
-                            </div>
+                                    </>
+                                )
+                                : <h4 className='stay-tuned-label'> STAY TUNED, WE WILL HAVE STOCK SOON! </h4>
+                            }
+                            
                         </div>
                     </div>
-                    <div>
+                    <hr />
+                    {/* <div>
                         menus
-                    </div>
-                </div> :
-                null}
+                    </div> */}
+                </div> 
+                : <div className='spinner'>
+                    <Spinner />
+                  </div> 
+            }
         </>
     );
 };

@@ -7,6 +7,7 @@
     text-align: center;
     padding: 10px 50px;
     z-index: 200;
+    margin-left: -322px;
     transition: all 0.3s ease;
 }
 
@@ -31,6 +32,7 @@
 }
 
 .signup-section a {
+    text-decoration: underline;
     margin-left: 10px;
     color: white;
 }

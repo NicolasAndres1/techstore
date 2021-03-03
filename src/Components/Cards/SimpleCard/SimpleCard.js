@@ -5,7 +5,7 @@ import classes from './SimpleCard.module.css';
 import CustomButton from '../../Button/CustomButton';
 
 const SimpleCard = props => {
-    let url = props.name.replace(/\s+/g, '-');
+    const url = props.name.replace(/\s+/g, '-');
 
     return (
         <div className={classes.Card}>

@@ -3,8 +3,9 @@ import { CartProvider } from '../../contexts/CartContext';
 
 import classes from './Layout.module.css';
 import Header from '../../Components/Navigation/Header/Header';
-import Sidedrawer from '../../Components/Navigation/Sidedrawer/Sidedrawer';
+import Sidedrawer from '../../Components/Sidedrawer/Sidedrawer';
 import { AuthProvider } from '../../contexts/AuthContext';
+import SidedrawerMenu from '../../Components/Navigation/SidedrawerMenu/SidedrawerMenu';
 
 const Layout = props => {
     const [sidedrawerIsVisible, setSidedrawerIsVisible] = useState(false);
@@ -19,7 +20,9 @@ const Layout = props => {
                     drawerToggleClicked={sideDrawerToggleHandler}/>
                 <Sidedrawer 
                     open={sidedrawerIsVisible}
-                    closed={sideDrawerCloseHandler}/>
+                    closed={sideDrawerCloseHandler}>
+                    <SidedrawerMenu />
+                </Sidedrawer>
                 <main className={classes.Content}>
                     {props.children}
                 </main>

@@ -7,7 +7,7 @@ import Logo from '../../Logo/Logo';
 import Menu from '../Menu/Menu';
 import Search from "./Search/Search";
 import User from './User/User';
-import DrawerToggle from '../Sidedrawer/DrawerToggle/DrawerToggle';
+import DrawerToggle from '../SidedrawerMenu/DrawerToggle/DrawerToggle';
 
 const Header = props => {
     return (
@@ -20,9 +20,6 @@ const Header = props => {
                 <Menu />
             </nav>
             <div className={classes.Controls}>
-                <div className={classes.Search}>
-                    <Search />
-                </div>
                 <User />
             </div>
         </header>

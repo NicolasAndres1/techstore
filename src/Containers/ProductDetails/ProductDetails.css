@@ -11,6 +11,7 @@ hr {
 .item-section {
     height: 100%;
     width: auto;
+    background-color: white !important;
 }
 
 /* BREADCRUMB */
@@ -104,7 +105,15 @@ hr {
     margin-left: 5px;
 }
 
+.stay-tuned-label {
+    margin: 10px 20px;
+}
+
 @media (min-width: 499px) {
+    .content {
+        margin-top: 120px;
+    }
+
     .breadcrumb {
         display: flex;
     }
@@ -115,10 +124,14 @@ hr {
         width: auto;
     }
 
+    .item-section .item-info {
+        max-width: 40%;
+    }
+
     .img-wrapper img {
         height: 350px;
         width: 400px;
-        margin-left: 200px;
+        margin-left: 50px;
     }
 
     .item-section .item-stock {
@@ -135,6 +148,15 @@ hr {
     }
 
     .add-cart-wrapper {
-        margin-top: auto;
+        margin-bottom: -5px;
+    }
+
+    .spinner {
+        background-color: white;
+        margin-top: 200px;
+    }
+
+    .stay-tuned-label {
+        margin: 35px 20px;
     }
 }

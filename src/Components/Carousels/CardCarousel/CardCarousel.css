@@ -1,0 +1,39 @@
+.react-multi-carousel-list {
+    position: inherit !important;
+}
+
+.react-multi-carousel-track {
+    margin: 0 0 0 20px !important;
+}
+
+.carousel-container .react-multiple-carousel__arrow--left {
+    left: calc(0% + 10px);
+}
+
+.carousel-container .react-multiple-carousel__arrow--right {
+    right: calc(5% - 7px);
+}
+
+@media (min-width: 500px) {
+    .CardCarousel {
+        display: flex;
+    }
+
+    .carousel-container {
+        margin-left: 75px;
+    }
+
+    .react-multi-carousel-track {
+        margin: 15px 10px !important;
+    }
+
+    .carousel-container .react-multiple-carousel__arrow--left {
+        left: calc(0% + 50px);
+        z-index: 0;
+    }
+    
+    .carousel-container .react-multiple-carousel__arrow--right {
+        right: calc(5% - 50px);
+        z-index: 0;
+    }
+}

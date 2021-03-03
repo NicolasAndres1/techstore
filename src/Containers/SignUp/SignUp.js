@@ -27,7 +27,8 @@ const SignUp = props => {
         setPasswordError('');
     }
 
-    const handleSignUp = () => {
+    const handleSignUp = (e) => {
+        e.preventDefault();
         clearErrors();
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .then((userCreated) => {
@@ -79,7 +80,7 @@ const SignUp = props => {
             {user
                 ? <Redirect to={'/home'} />
                 : (
-                    <section className='signup'>
+                    <form onSubmit={handleSignUp} className='signup'>
                         <div className='logo-wrapper'>
                         </div>
                         <h1> Sign Up </h1>
@@ -114,14 +115,13 @@ const SignUp = props => {
                             By creating an account, you agree to TechStore’s Privacy Notice and Terms of Use.
                         </div>
                         <Button 
-                            type='button'
-                            onClick={handleSignUp}>
+                            type='submit'>
                             Sign Up
                         </Button>
                         <div className='text-near-signup'>
                             Have an account? <Link to={'/signin'}> Log In </Link>
                         </div>
-                    </section>
+                    </form>
                 )
             }
         </>
