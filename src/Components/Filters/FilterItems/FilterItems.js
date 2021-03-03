@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './FilterItems.css';
 import Button from '../../Button/CustomButton';
 
-const FilterItems = ({itemTypes, close, filtersToApply}) => {
+const FilterItems = ({itemTypes, close, filtersChanges}) => {
     const [itemTypesState, setItemTypesState] = useState([]);
 
     useEffect(() => {
@@ -40,7 +40,7 @@ const FilterItems = ({itemTypes, close, filtersToApply}) => {
                 .map(({item}) => item);
         }
 
-        filtersToApply(itemTypesArray);
+        filtersChanges(itemTypesArray);
     }
 
     return (

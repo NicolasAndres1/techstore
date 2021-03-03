@@ -45,7 +45,7 @@
 }
 
 .open-dropdown {
-    transform: translateY(0);
+    transform: translateY(-51px);
 }
 
 .close-dropdown {

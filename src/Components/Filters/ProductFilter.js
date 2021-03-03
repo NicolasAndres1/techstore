@@ -19,7 +19,7 @@ const ProductFilter = props => {
 
     const checkFiltersToApply = (filters) => {
         if(filters.length === itemTypes.length) props.searchByCategory(true)
-        else props.filtersToApply(filters);
+        else props.filtersChanges(filters);
     }
 
     return (
@@ -37,7 +37,7 @@ const ProductFilter = props => {
                 <hr />
                 <FilterItems 
                     itemTypes={itemTypes}
-                    filtersToApply={checkFiltersToApply}/>
+                    filtersChanges={checkFiltersToApply}/>
             </div>
         </>
     );

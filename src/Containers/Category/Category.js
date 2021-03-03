@@ -41,7 +41,9 @@ const Category = props => {
                         isVisible={sidedrawerIsVisible}
                         category={category}
                         subCategory={subCategory}
-                        closed={sideDrawerCloseHandler}/>
+                        closed={sideDrawerCloseHandler}
+                        filtersChanges={filtersToApply}
+                        searchByCategory={searchByCategory}/>
             </Sidedrawer>
             <div className='category-wrapper'>
                 <h2> { subCategory.replace('-',' ').toUpperCase() } </h2>
@@ -51,7 +53,7 @@ const Category = props => {
                             category={category}
                             subCategory={subCategory}
                             clicked={sideDrawerToggleHandler}
-                            filtersToApply={filtersToApply}
+                            filtersChanges={filtersToApply}
                             searchByCategory={searchByCategory}/>
                     </div>
                     {categoryItems ? 

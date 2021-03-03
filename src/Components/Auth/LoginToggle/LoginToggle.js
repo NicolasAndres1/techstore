@@ -49,7 +49,9 @@ const LoginToggle = (props) => {
             if(user) {
                 clearInputs();
                 UserService.getUserDataByUid(user.uid)
-                    .then(res => setUser(res))
+                    .then(res => {
+                        setUser(res)
+                    })
                     .catch(err => console.error(err));
             }
             else {

@@ -13,13 +13,19 @@ const SidedrawerFilters = props => {
             .catch(err => console.error(err));
     }, [props.subCategory, props.category])
 
+    const checkFiltersToApply = (filters) => {
+        if(filters.length === itemTypes.length) props.searchByCategory(true)
+        else props.filtersChanges(filters);
+    }
+
     return (
         <>
             <div className='color'> SELECT FILTERS </div>
             <hr />
             <FilterItems 
                 itemTypes={itemTypes}
-                close={props.closed}/>
+                close={props.closed}
+                filtersChanges={checkFiltersToApply}/>
         </>
     );
 };
