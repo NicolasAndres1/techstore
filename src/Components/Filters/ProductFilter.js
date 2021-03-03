@@ -15,7 +15,12 @@ const ProductFilter = props => {
         CategoriesService.getItemTypesByCategory(props.category, props.subCategory)
             .then(res => setItemTypes(res))
             .catch(err => console.error(err));
-    }, [props.subCategory, props.category])
+    }, [props.subCategory, props.category]);
+
+    const checkFiltersToApply = (filters) => {
+        if(filters.length === itemTypes.length) props.searchByCategory(true)
+        else props.filtersToApply(filters);
+    }
 
     return (
         <>
@@ -30,7 +35,9 @@ const ProductFilter = props => {
             <div className='filter-card'>
                 <h3> FILTERS </h3>
                 <hr />
-                <FilterItems itemTypes={itemTypes}/>
+                <FilterItems 
+                    itemTypes={itemTypes}
+                    filtersToApply={checkFiltersToApply}/>
             </div>
         </>
     );

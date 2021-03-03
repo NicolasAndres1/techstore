@@ -14,13 +14,23 @@ const Category = props => {
     const [sidedrawerIsVisible, setSidedrawerIsVisible] = useState(false);
 
     useEffect(() => {
-        ProductService.getByCategory(props.match.params.subCategory)
-            .then(res => setCategoryItems(res))
-            .catch(err => console.error(err));
+        searchByCategory();
     }, [subCategory]);
+
+    const searchByCategory = () => {
+        ProductService.getByCategory(props.match.params.subCategory)
+        .then(res => setCategoryItems(res))
+        .catch(err => console.error(err));
+    }
 
     const sideDrawerCloseHandler = () => setSidedrawerIsVisible(false);
     const sideDrawerToggleHandler = () => setSidedrawerIsVisible(!sidedrawerIsVisible);
+
+    const filtersToApply = (itemTypes) => {
+        ProductService.getByItemTypes(itemTypes)
+                .then(res => setCategoryItems(res))
+                .catch(err => console.error(err));
+    }
 
     return (
         <>
@@ -40,7 +50,9 @@ const Category = props => {
                         <ProductFilter 
                             category={category}
                             subCategory={subCategory}
-                            clicked={sideDrawerToggleHandler}/>
+                            clicked={sideDrawerToggleHandler}
+                            filtersToApply={filtersToApply}
+                            searchByCategory={searchByCategory}/>
                     </div>
                     {categoryItems ? 
                         <div className='category-items'>

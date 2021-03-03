@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import ProductsService from '../../../Services/ProductsService';
 
 import './FilterItems.css';
 import Button from '../../Button/CustomButton';
 
-const FilterItems = ({itemTypes, close}) => {
+const FilterItems = ({itemTypes, close, filtersToApply}) => {
     const [itemTypesState, setItemTypesState] = useState([]);
 
     useEffect(() => {
@@ -27,13 +26,21 @@ const FilterItems = ({itemTypes, close}) => {
     };
 
     const applyFiltersHandler = props => {
-        close(props);
-        const itemTypesArray = itemTypesState
-                                .filter(item => item.isChecked)
-                                .map(({item}) => item);
-        ProductsService.getByItemTypes(itemTypesArray)
-            .then(res => console.log(res))
-            .catch(err => console.error(err));
+        if(close) close(props);
+        let itemTypesArray = itemTypesState
+                                .filter(item => item.isChecked);
+        
+                                
+        if(itemTypesArray.length > 0) {
+            itemTypesArray = itemTypesArray
+                .map(({item}) => item);
+        }
+        else {
+            itemTypesArray = itemTypesState
+                .map(({item}) => item);
+        }
+
+        filtersToApply(itemTypesArray);
     }
 
     return (
