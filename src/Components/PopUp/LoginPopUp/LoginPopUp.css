@@ -1,17 +1,4 @@
-.login-block {
-    position: absolute;
-    background-color: black;
-    color: white;
-    display: block;
-    align-items: center;
-    text-align: center;
-    padding: 10px 50px;
-    z-index: 200;
-    margin-left: -322px;
-    transition: all 0.3s ease;
-}
-
-.login-block h3 {
+.popup-content h3 {
     margin: 10px 0;
 }
 
@@ -23,7 +10,7 @@
     margin: 5px 0;
 }
 
-.login-block button {
+.popup-content button {
     margin: 10px 0;
 }
 
@@ -35,17 +22,6 @@
     text-decoration: underline;
     margin-left: 10px;
     color: white;
-}
-
-.open-login {
-    transform: translateY(69%);
-}
-
-.close-login {
-    transform: translateY(-100%);
-}
-
-.user-menu {
 }
 
 .user-menu a {

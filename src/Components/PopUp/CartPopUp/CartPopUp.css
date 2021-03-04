@@ -1,0 +1,37 @@
+.cart-container {
+    display: none;
+}
+
+@media (min-width: 480px) {
+
+    .cart-container {
+        display: block;
+    }
+
+    .cart-title {
+        margin: 10px 0;
+    }
+
+    .cart-items {
+        margin: 50px 0;
+    }
+
+    .cart-item {
+        display: flex;
+        margin-top: 40px;
+    }
+    
+    .cart-item img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .item-quantity {
+        margin: 10px 0;
+        font-size: small;
+    } 
+
+    .action-buttons {
+        display: grid;
+    }
+}

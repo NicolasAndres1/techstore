@@ -75,9 +75,7 @@ const Login = () => {
     return (
         <>
             <form onSubmit={handleLogin} className='signup'>
-                <div className='logo-wrapper'>
-                    <Logo />
-                </div>
+                <Logo />
                 <h1> Sign In </h1>
                 <div className='signup-form-wrapper'>
                     <div className='signup-form'>

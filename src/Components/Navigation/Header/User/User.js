@@ -5,22 +5,27 @@ import './User.css';
 import { CartContext } from '../../../../contexts/CartContext';
 import { faUser, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Login from '../../../Auth/LoginToggle/LoginToggle';
+import PopUp from "../../../PopUp/PopUp";
+import LoginPopUp from '../../../PopUp/LoginPopUp/LoginPopUp';
+import CartPopUp from '../../../PopUp/CartPopUp/CartPopUp';
 
 const User = props => {
     const [cart, setCart] = useContext(CartContext);
     const [isLoginSectionOpen, setIsLoginSectionOpen] = useState(false);
+    const [isCartOpen, setIsCartOpen] = useState(false);
 
     const totalCartQuantity = cart.reduce((acc, curr) => acc + curr.quantity, 0);
 
     const toggleIsLoginSectionOpen = () => setIsLoginSectionOpen(!isLoginSectionOpen);
+    const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
 
     return (
         <>
             <div className='cart-button'>
                 <button
                     type='button'
-                    title='Cart'>
+                    title='Cart'
+                    onClick={toggleIsCartOpen}>
                     <FontAwesomeIcon 
                         className='FontAwesomeIcon'
                         icon={faShoppingCart}/>
@@ -30,6 +35,11 @@ const User = props => {
                     null
                 }
             </div>
+            <PopUp
+                open={isCartOpen}
+                closed={toggleIsCartOpen}>
+                <CartPopUp closed={toggleIsCartOpen}/>
+            </PopUp>
             <button
                 type='button'
                 title='User'
@@ -39,9 +49,11 @@ const User = props => {
                     className='FontAwesomeIcon'
                     icon={faUser}/>
             </button>
-            <Login 
+            <PopUp
                 open={isLoginSectionOpen}
-                closed={toggleIsLoginSectionOpen}/>
+                closed={toggleIsLoginSectionOpen}>
+                <LoginPopUp closed={toggleIsLoginSectionOpen}/>
+            </PopUp>
         </>
     );
 };
