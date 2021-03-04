@@ -1,5 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
-import { firebaseAuth } from './Config/firebaseConfig';
+import { AuthProvider } from './contexts/AuthContext';
+import { CartProvider } from './contexts/CartContext';
 
 import './App.css';
 
@@ -23,11 +24,13 @@ const App = () => {
   );
 
   return (
-    <div>
-      <Layout>
-        { routes }
-      </Layout>
-    </div>
+    <AuthProvider>
+      <CartProvider>  
+        <Layout>
+          { routes }
+        </Layout>
+      </CartProvider>
+    </AuthProvider>
   );
 }
 

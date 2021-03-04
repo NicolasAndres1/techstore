@@ -78,7 +78,7 @@ const Login = () => {
                 <div className='logo-wrapper'>
                     <Logo />
                 </div>
-                <h2> Sign In </h2>
+                <h1> Sign In </h1>
                 <div className='signup-form-wrapper'>
                     <div className='signup-form'>
                         <Input 

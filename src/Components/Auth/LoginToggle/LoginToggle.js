@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
+import { CartContext } from '../../../contexts/CartContext';
 import UserService from '../../../Services/UserService';
 import firebase, { firebaseAuth } from '../../../Config/firebaseConfig';
 import classnames from 'classnames';
@@ -18,6 +19,7 @@ const LoginToggle = (props) => {
     })
 
     const [user, setUser] = useContext(AuthContext);
+    const [cart, setCart] = useContext(CartContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
@@ -78,6 +80,7 @@ const LoginToggle = (props) => {
 
     const handleLogout = () => {
         firebaseAuth.signOut();
+        setCart([]);
     };
 
     return (

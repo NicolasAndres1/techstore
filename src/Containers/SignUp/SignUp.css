@@ -35,6 +35,7 @@
 .text-near-signup a {
     color: black;
     font-weight: bold;
+    text-decoration: underline;
 }
 
 .signup button {

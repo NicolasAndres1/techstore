@@ -14,10 +14,17 @@ const saveUser = (userData) =>
             firstName: userData.firstName,
             lastName: userData.lastName,
             email: userData.email,
-            cartItems: {}
+            cartItems: []
+        });
+
+const updateItemsOnCart = (userUid, cart) =>
+    docRef.doc(userUid)
+        .update({
+            'cartItems': cart
         });
 
 export default {
     getUserDataByUid,
-    saveUser
+    saveUser,
+    updateItemsOnCart
 }
