@@ -7,6 +7,7 @@ import UserService from '../../Services/UserService';
 import './SignUp.css';
 import Input from '../../Components/Input/Input';
 import Button from '../../Components/Button/CustomButton';
+import Logo from '../../Components/Logo/Logo';
 
 const SignUp = props => {
     const [user, setUser] = useContext(AuthContext);
@@ -81,8 +82,7 @@ const SignUp = props => {
                 ? <Redirect to={'/home'} />
                 : (
                     <form onSubmit={handleSignUp} className='signup'>
-                        <div className='logo-wrapper'>
-                        </div>
+                        <Logo />
                         <h1> Sign Up </h1>
                         <div className='signup-form-wrapper'>
                             <div className='signup-form'>

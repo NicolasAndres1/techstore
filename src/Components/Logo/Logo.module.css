@@ -1,5 +1,6 @@
 .LogoWrapper {
     display: flex;
+    justify-content: center;
     margin: auto 0;
     height: 100%;
     padding: 8px;

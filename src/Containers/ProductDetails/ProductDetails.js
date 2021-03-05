@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
+import { AuthContext } from '../../contexts/AuthContext';
 
 import ProductService from '../../Services/ProductsService';
+import UserService from '../../Services/UserService';
 
 import './ProductDetails.css';
 import BestPriceImg from '../../Assets/img/best-price.png';
@@ -10,7 +12,7 @@ import StockLabel from '../../Components/StockLabel/StockLabel';
 import Button from '../../Components/Button/CustomButton';
 import CreditCards from '../../Components/CreditCards/CreditCards';
 import QuantitySelector from '../../Components/QuantitySelector/QuantitySelector';
-import { faShoppingCart, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Spinner from '../../Components/Spinner/Spinner';
 
@@ -18,6 +20,7 @@ const ProductDetails = props => {
     const [product, setProduct] = useState();
     const [productQuantity, setProductQuantity] = useState(1);
     const [cart, setCart] = useContext(CartContext);
+    const [user, setUser] = useContext(AuthContext);
 
     useEffect(() => {
         ProductService.getById(props.match.params.id)
@@ -30,19 +33,37 @@ const ProductDetails = props => {
     };
 
     const addToCart = () => {
-        console.log(productQuantity);
         const toAdd = {
-            productId: product.id,
-            quantity: productQuantity
+            id: product.id.toString(),
+            quantity: productQuantity,
+            name: product.name,
+            price: product.price,
+            img: product.img
         }
-        setCart(currentState => [...currentState, toAdd]);
+
+        setCart(currentState => {
+            const itemIdx = cart.findIndex(e => e.id === toAdd.id);
+            let cartToUpdate = [...currentState];
+
+            if(itemIdx >= 0) {
+                cartToUpdate[itemIdx].quantity = cartToUpdate[itemIdx].quantity + toAdd.quantity;
+            }
+            else {
+                cartToUpdate = [...currentState, toAdd]
+            }
+            
+            if(user) 
+                UserService.updateItemsOnCart(user.uid, cartToUpdate);
+            else localStorage.setItem('cart-items', JSON.stringify(cartToUpdate));
+
+            return cartToUpdate;
+        });
     }
 
     return (
         <>
             {product ?
                 <div className='content'>
-                    {/* <div className='breadcrumb'> breadcrumb </div> */}
                     <div className='item-section'> 
                         <div className='img-wrapper'>
                             <img src={product.img}/>

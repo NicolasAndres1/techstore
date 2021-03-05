@@ -28,7 +28,7 @@ const QuantitySelector = ({value, onClick}) => {
         'dropdown-arrow-up': dropdownToggler,
     });
 
-    const showSelectorHandler = () => setMoreThanFiveUnits(true);
+    const showSelectorHandler = () => {setMoreThanFiveUnits(true)};
 
     const keyPressedHandler = (e) => {
         if(e.code === 'Enter') {
@@ -58,7 +58,7 @@ const QuantitySelector = ({value, onClick}) => {
                 { value } { value === 1 ? 'unit' : 'units' }
                 <small className={buttonArrowClasses}> v </small> 
             </button>
-            <ul className={dropdownClasses}>
+            <div className={dropdownClasses}>
                 <li onClick={sendQuantity} value={1}>
                     1 unit 
                 </li>
@@ -74,7 +74,7 @@ const QuantitySelector = ({value, onClick}) => {
                 <li onClick={sendQuantity} value={5}>
                     5 units
                 </li>
-                <li>
+                <li onClick={showSelectorHandler}>
                     {moreThanFiveUnits
                         ? <div className='custom-quantity-selector'>
                             <small> Quantity: </small>
@@ -90,12 +90,12 @@ const QuantitySelector = ({value, onClick}) => {
                                 </small>
                             </div>
                           </div>
-                        : <button onClick={showSelectorHandler}> 
+                        : <button> 
                             More than 5 units 
                           </button>
                     }
                 </li>
-            </ul>
+            </div>
         </div>
     );
 };

@@ -1,0 +1,27 @@
+.checkout-form {
+    padding: 16px 20px 16px 20px;
+}
+
+.checkout-form .form-block {
+    margin-top: 20px;
+}
+
+.checkout-form-fields {
+    display: block;
+    background-color: whitesmoke;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 0 2px 14px #585858;
+    width: 94%;
+    padding: 10px;
+}
+
+.form-fields {
+    margin-left: 20px;
+    max-width: 75%;
+}
+
+.form-fields input{
+    margin: 10px 0;
+    width: 100%;
+}

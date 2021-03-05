@@ -23,20 +23,38 @@
 
 .signup-form {
     width: 100%;
-    margin: 10px auto;
-    margin-left: 1px;
 }
 
 .text-near-signup {
     margin: 10px auto;
-    width: 30%;
+    width: 80%;
 }
 
 .text-near-signup a {
     color: black;
     font-weight: bold;
+    text-decoration: underline;
 }
 
 .signup button {
-    width: 10%;
+    width: 30%;
+}
+
+@media (min-width: 480px) {
+    .signup-form-wrapper {
+        width: 50%;
+    }
+
+    .signup-form {
+        width: 100%;
+        margin: 0;
+    }
+
+    .text-near-signup {
+        width: 30%;
+    }
+    
+    .signup button {
+        width: 10%;
+    }
 }

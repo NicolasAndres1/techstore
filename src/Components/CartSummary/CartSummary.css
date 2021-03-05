@@ -1,0 +1,33 @@
+.cart-summary {
+    padding: 16px auto;
+    display: block;
+    background-color: whitesmoke;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 0 2px 14px #585858;
+    margin: 5px 0;
+    width: 100%;
+}
+
+.cart-summary h3 {
+    padding: 16px 20px;
+}
+
+.cart-summary p {
+    padding: 16px 20px;
+}
+
+.cart-summary .cart-summary-button {
+    margin: 16px 60px;
+}
+
+@media (min-width: 480px) {
+    .cart-summary {
+        width: 100%;
+    }
+
+    .cart-summary .cart-summary-button {
+        padding: 12px 10px;
+        box-sizing: border-box;
+    }
+}
