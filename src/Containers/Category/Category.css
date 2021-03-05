@@ -33,7 +33,6 @@
     .category-items {
         margin: 10px 0;
         width: 80%;
-        /* display: flex; */
     }
 
     .product-filter {
@@ -41,7 +40,7 @@
         margin-top: 0px;
         position: sticky;
         position: -webkit-sticky;
-        top: 0;
+        top: 8rem;
     }
 
     .product-filter .filter{

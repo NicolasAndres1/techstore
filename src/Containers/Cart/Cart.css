@@ -1,0 +1,32 @@
+.cart-wrapper {
+    padding: 16px 20px 16px 20px;
+}
+
+.cart-items-and-summary-wrapper {
+    margin-top: 20px;
+    display: block;
+}
+
+@media (min-width: 480px) {
+    .cart-wrapper {
+        padding: 16px 20px 16px 50px;
+    }
+    
+    .cart-items-and-summary-wrapper {
+        margin-top: 20px;
+        display: flex;
+    }
+    
+    .cart-items-wrapper {
+        width: 80%;
+    }
+
+    .cart-summary-wrapper {
+        max-width: 30%;
+        margin-top: 0px;
+        position: sticky;
+        position: -webkit-sticky;
+        align-self: flex-start;
+        top: 8rem;
+    }
+}

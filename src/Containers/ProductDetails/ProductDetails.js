@@ -34,12 +34,15 @@ const ProductDetails = props => {
 
     const addToCart = () => {
         const toAdd = {
-            productId: product.id.toString(),
-            quantity: productQuantity
+            id: product.id.toString(),
+            quantity: productQuantity,
+            name: product.name,
+            price: product.price,
+            img: product.img
         }
 
         setCart(currentState => {
-            const itemIdx = cart.findIndex(e => e.productId === toAdd.productId);
+            const itemIdx = cart.findIndex(e => e.id === toAdd.id);
             let cartToUpdate = [...currentState];
 
             if(itemIdx >= 0) {

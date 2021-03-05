@@ -15,8 +15,24 @@
     font-size: xx-small;
 }
 
+.cart-computer {
+    display: flex;
+}
+
+.cart-mobile {
+    display: none;
+}
+
 @media (max-width: 480px) {
     .user {
         display: none;
+    }
+
+    .cart-computer {
+        display: none;
+    }
+
+    .cart-mobile {
+        display: flex;
     }
 }

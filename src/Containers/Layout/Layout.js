@@ -34,7 +34,7 @@ const Layout = props => {
             const combinedCarts = [...userCart, ...localStorageCart];
 
             combinedCarts.forEach(function(obj) {
-                var id = obj.productId;
+                var id = obj.id;
                 if(!this[id]) cartToBeSetted.push(this[id] = obj);
                 else this[id].quantity += obj.quantity;
             }, Object.create(null));

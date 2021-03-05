@@ -34,4 +34,8 @@
     .action-buttons {
         display: grid;
     }
+
+    .action-buttons button {
+        width: 100%;
+    }
 }
