@@ -42,7 +42,7 @@
     
     .close-popup {
         top:0;
-        transform: translateY(-100%);
+        transform: translateY(-150%);
     }
 
     .popup-content::-webkit-scrollbar-track {

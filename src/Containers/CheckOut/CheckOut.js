@@ -52,109 +52,102 @@ const CheckOut = (props) => {
     }
 
     return (
-        <>
-        {user 
-            ? (
-                <form 
-                    onSubmit={checkOutHandler}
-                    className='checkout-form'>
-                    <div className='check-out-form-wrapper'>
-                        <div className='form-block'>
-                            <small> SHIPPING INFO </small>
-                            <div className='checkout-form-fields'>
-                                <div className='form-fields'>
-                                    <Input 
-                                        type='text'
-                                        required={true}
-                                        placeholder='Country *'
-                                        onChange={e => setCountry(e.target.value)}/>
-                                    <Input 
-                                        type='text'
-                                        required={true}
-                                        placeholder='First Name *'
-                                        onChange={e => setFirstName(e.target.value)}/>
-                                    <Input 
-                                        type='text'
-                                        required={true}
-                                        placeholder='Last Name *'
-                                        onChange={e => setLastName(e.target.value)}/>
-                                    <Input 
-                                        type='text'
-                                        required={true}
-                                        placeholder='Address *'
-                                        onChange={e => setAddress(e.target.value)}/>
-                                    <Input 
-                                        type='text'
-                                        placeholder='Address 2 (Opt) Apt, floor, etc.'
-                                        onChange={e => setAddressOpt(e.target.value)}/>
-                                    <Input 
-                                        type='text'
-                                        required={true}
-                                        placeholder='City *'
-                                        onChange={e => setCity(e.target.value)}/>
-                                    <Input 
-                                        type='text'
-                                        required={true}
-                                        placeholder='State/Province *'
-                                        onChange={e => setStateProvince(e.target.value)}/>
-                                    <Input 
-                                        type='number'
-                                        required={true}
-                                        placeholder='Zip Code *'
-                                        onChange={e => setZipCode(e.target.value)}/>
-                                    <Input 
-                                        type='number'
-                                        required={true}
-                                        placeholder='Phone *'
-                                        onChange={e => setPhone(e.target.value)}/>
-                                </div>
-                            </div>
+        <form 
+            onSubmit={checkOutHandler}
+            className='checkout-form'>
+            <div className='check-out-form-wrapper'>
+                <div className='form-block'>
+                    <small> SHIPPING INFO </small>
+                    <div className='checkout-form-fields'>
+                        <div className='form-fields'>
+                            <Input 
+                                type='text'
+                                required={true}
+                                placeholder='Country *'
+                                onChange={e => setCountry(e.target.value)}/>
+                            <Input 
+                                type='text'
+                                required={true}
+                                placeholder='First Name *'
+                                onChange={e => setFirstName(e.target.value)}/>
+                            <Input 
+                                type='text'
+                                required={true}
+                                placeholder='Last Name *'
+                                onChange={e => setLastName(e.target.value)}/>
+                            <Input 
+                                type='text'
+                                required={true}
+                                placeholder='Address *'
+                                onChange={e => setAddress(e.target.value)}/>
+                            <Input 
+                                type='text'
+                                placeholder='Address 2 (Opt) Apt, floor, etc.'
+                                onChange={e => setAddressOpt(e.target.value)}/>
+                            <Input 
+                                type='text'
+                                required={true}
+                                placeholder='City *'
+                                onChange={e => setCity(e.target.value)}/>
+                            <Input 
+                                type='text'
+                                required={true}
+                                placeholder='State/Province *'
+                                onChange={e => setStateProvince(e.target.value)}/>
+                            <Input 
+                                type='number'
+                                required={true}
+                                placeholder='Zip Code *'
+                                onChange={e => setZipCode(e.target.value)}/>
+                            <Input 
+                                type='number'
+                                required={true}
+                                placeholder='Phone *'
+                                onChange={e => setPhone(e.target.value)}/>
                         </div>
-                        <div className='form-block'>
-                            <small className='payment-info'> PAYMENT INFO </small>
-                            <div className='checkout-form-fields'>
-                                <div className='form-fields'>
-                                    <CreditCardInput 
-                                        creditCardTypeChanged={e => setCardType(e)}
-                                        creditCardNumberChanged={e => setCardNumber(e)}/>
-                                    <div className='check-out-finance-cards'>
-                                        <CreditCards cardType={cardType}/>
-                                    </div>
-                                    <Input 
-                                        type='text'
-                                        required={true}
-                                        placeholder='Cardholder Name *'
-                                        onChange={e => setCardHolderName(e.target.value)}/>
-                                    <div className='card-expirity-and-cvv'>
-                                        <Input 
-                                            type='text'
-                                            required={true}
-                                            placeholder='MM *'
-                                            onChange={e => setCardMonthExpirity(e.target.value)}/>
-                                        <div className='card-expirity-backslash'> / </div>
-                                        <Input 
-                                            type='text'
-                                            required={true}
-                                            placeholder='YY *'
-                                            onChange={e => setCardYearExpirity(e.target.value)}/>
-                                        <Input 
-                                            type='number '
-                                            required={true}
-                                            placeholder='CVV *'
-                                            onChange={e => setCvv(e.target.value)}/>
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+                <div className='form-block'>
+                    <small className='payment-info'> PAYMENT INFO </small>
+                    <div className='checkout-form-fields'>
+                        <div className='form-fields'>
+                            <CreditCardInput 
+                                creditCardTypeChanged={e => setCardType(e)}
+                                creditCardNumberChanged={e => setCardNumber(e)}/>
+                            <div className='check-out-finance-cards'>
+                                <CreditCards cardType={cardType}/>
+                            </div>
+                            <Input 
+                                type='text'
+                                required={true}
+                                placeholder='Cardholder Name *'
+                                onChange={e => setCardHolderName(e.target.value)}/>
+                            <div className='card-expirity-and-cvv'>
+                                <Input 
+                                    type='text'
+                                    required={true}
+                                    placeholder='MM *'
+                                    onChange={e => setCardMonthExpirity(e.target.value)}/>
+                                <div className='card-expirity-backslash'> / </div>
+                                <Input 
+                                    type='text'
+                                    required={true}
+                                    placeholder='YY *'
+                                    onChange={e => setCardYearExpirity(e.target.value)}/>
+                                <Input 
+                                    type='number '
+                                    required={true}
+                                    placeholder='CVV *'
+                                    onChange={e => setCvv(e.target.value)}/>
                             </div>
                         </div>
                     </div>
-                    <div className='checkout-summary-wrapper'>
-                        <CartSummary totalCartPrice={totalCartPrice}/>
-                    </div>
-                </form>
-            )
-            : <Redirect to='/signin' />
-        }
-        </>
+                </div>
+            </div>
+            <div className='checkout-summary-wrapper'>
+                <CartSummary totalCartPrice={totalCartPrice}/>
+            </div>
+        </form>
     )
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import firebase ,{ firebaseAuth } from '../../../Config/firebaseConfig';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import UserService from '../../../Services/UserService';
 
@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 import Logo from '../../Logo/Logo';
 
 const Login = () => {
-    const history = useHistory();
     const [user, setUser] = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -92,22 +91,13 @@ const Login = () => {
                         <p className='errorMsg'> { passwordError } </p>
                     </div>
                 </div>
-                {!user
-                    ? (
-                        <>
-                            <Button 
-                                type='submit'>
-                                Sign In
-                            </Button>
-                            <div className='text-near-signup'>
-                                New To TechStore? <Link to={'/signup'}> Sign Up </Link>
-                            </div>
-                        </>
-                    )
-                    : (
-                        <Redirect to='/home' />
-                    )
-                }
+                <Button 
+                    type='submit'>
+                    Sign In
+                </Button>
+                <div className='text-near-signup'>
+                    New To TechStore? <Link to={'/signup'}> Sign Up </Link>
+                </div>
             </form>
         </>
     );
