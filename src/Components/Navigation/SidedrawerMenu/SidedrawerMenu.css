@@ -35,13 +35,18 @@ hr {
     margin: 5px 11px 18px 11px;
 }
 
-.user-logo {
+.sidedrawer-logo {
     color: white;
     height: 15px;
     width: 15px;
 }
 
-.user-logo .fa-user {
+.sidedrawer-logo .fa-user {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.sidedrawer-logo .fa-history {
     max-height: 100%;
     max-width: 100%;
 }

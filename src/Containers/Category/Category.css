@@ -35,6 +35,10 @@
         width: 80%;
     }
 
+    .category-items .products-container div {
+        width: 30%;
+    }
+
     .product-filter {
         max-width: 30%;
         margin-top: 0px;
