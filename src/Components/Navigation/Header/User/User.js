@@ -32,7 +32,7 @@ const User = props => {
                         icon={faShoppingCart}/>
                 </button>
                 <Link 
-                    to={`/cart`}
+                    to={`/shopping/cart`}
                     className='cart-mobile'>
                     <button
                         type='button'
