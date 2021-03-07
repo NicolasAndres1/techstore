@@ -53,6 +53,11 @@
     font-weight: bold;
 }
 
+.checkout-spinner .loader {
+    color: white;
+    margin-top: 320px;
+}
+
 @media (min-width: 480px) {
     .checkout-form {
         display: flex;
