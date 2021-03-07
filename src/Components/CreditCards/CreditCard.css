@@ -1,0 +1,7 @@
+.card-logo {
+    height: 30px;
+}
+
+.set-color-card {
+    filter: grayscale(0) !important;
+}

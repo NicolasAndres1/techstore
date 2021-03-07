@@ -17,10 +17,13 @@ const MenuItem = props => {
     return (
         <li className={classes.MenuItem}>
             <div className={classes.Dropdown}>
-                <Link 
-                    to={`/${props.link}`}> 
-                    { props.title } 
-                </Link>
+                {props.link === 'home'
+                    ? <Link 
+                        to={`/${props.link}`}> 
+                        { props.title } 
+                      </Link>
+                    : <div onClick={props.clicked}> { props.title }  </div>
+                }
                 <div className={classes.DropdownContent}> 
                     {subCategories ?
                         subCategories.map((item, key) => {

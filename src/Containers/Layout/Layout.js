@@ -52,7 +52,7 @@ const Layout = props => {
             <Sidedrawer 
                 open={sidedrawerIsVisible}
                 closed={sideDrawerCloseHandler}>
-                <SidedrawerMenu />
+                <SidedrawerMenu closed={sideDrawerCloseHandler}/>
             </Sidedrawer>
             <main className={classes.Content}>
                 {props.children}

@@ -84,10 +84,10 @@ const LoginPopUp = (props) => {
                         <h3> Hi { user.firstName } ! 👋 </h3>
                         <hr />
                         <div className='user-menu'>
-                            <Link to='/'> Account Settings </Link>
-                            <Link to='/'> Cart </Link>
+                            <Link 
+                                to='/shopping/cart'
+                                onClick={props.closed}> Cart </Link>
                             <Link to='/'> Order History </Link>
-                            <Link to='/'> Wish List </Link>
                         </div>
                         <hr />
                         <Button onClick={handleLogout}> Logout </Button>

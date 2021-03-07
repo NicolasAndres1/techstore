@@ -77,54 +77,47 @@ const SignUp = props => {
     }
 
     return (
-        <>
-            {user
-                ? <Redirect to={'/home'} />
-                : (
-                    <form onSubmit={handleSignUp} className='signup'>
-                        <Logo />
-                        <h1> Sign Up </h1>
-                        <div className='signup-form-wrapper'>
-                            <div className='signup-form'>
-                                <Input 
-                                    type='text'
-                                    placeholder='First Name'
-                                    autoFocus={true}
-                                    required={true}
-                                    onChange={(e) => setFirstName(e.target.value)}/>
-                                <Input 
-                                    type='text'
-                                    placeholder='Last Name'
-                                    required={true}
-                                    onChange={(e) => setLastName(e.target.value)}/>
-                                <Input 
-                                    type='email'
-                                    placeholder='Email Address'
-                                    required={true}
-                                    onChange={(e) => setEmail(e.target.value)}/>
-                                <p className='errorMsg'> { emailError }  </p>
-                                <Input 
-                                    type='password'
-                                    placeholder='Password'
-                                    required={true}
-                                    onChange={(e) => setPassword(e.target.value)}/>
-                                <p className='errorMsg'> { passwordError } </p>
-                            </div>
-                        </div>
-                        <div className='text-near-signup'>
-                            By creating an account, you agree to TechStore’s Privacy Notice and Terms of Use.
-                        </div>
-                        <Button 
-                            type='submit'>
-                            Sign Up
-                        </Button>
-                        <div className='text-near-signup'>
-                            Have an account? <Link to={'/signin'}> Log In </Link>
-                        </div>
-                    </form>
-                )
-            }
-        </>
+        <form onSubmit={handleSignUp} className='signup'>
+            <Logo />
+            <h1> Sign Up </h1>
+            <div className='signup-form-wrapper'>
+                <div className='signup-form'>
+                    <Input 
+                        type='text'
+                        placeholder='First Name'
+                        autoFocus={true}
+                        required={true}
+                        onChange={(e) => setFirstName(e.target.value)}/>
+                    <Input 
+                        type='text'
+                        placeholder='Last Name'
+                        required={true}
+                        onChange={(e) => setLastName(e.target.value)}/>
+                    <Input 
+                        type='email'
+                        placeholder='Email Address'
+                        required={true}
+                        onChange={(e) => setEmail(e.target.value)}/>
+                    <p className='errorMsg'> { emailError }  </p>
+                    <Input 
+                        type='password'
+                        placeholder='Password'
+                        required={true}
+                        onChange={(e) => setPassword(e.target.value)}/>
+                    <p className='errorMsg'> { passwordError } </p>
+                </div>
+            </div>
+            <div className='text-near-signup'>
+                By creating an account, you agree to TechStore’s Privacy Notice and Terms of Use.
+            </div>
+            <Button 
+                type='submit'>
+                Sign Up
+            </Button>
+            <div className='text-near-signup'>
+                Have an account? <Link to={'/signin'}> Log In </Link>
+            </div>
+        </form>        
     );
 };
 

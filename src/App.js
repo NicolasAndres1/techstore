@@ -1,5 +1,6 @@
+import { useContext } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
+import { AuthContext } from './contexts/AuthContext';
 import { CartProvider } from './contexts/CartContext';
 
 import './App.css';
@@ -12,15 +13,19 @@ import SignIn from './Containers/SignIn/SignIn'
 import SignUp from './Containers/SignUp/SignUp';
 import Cart from './Containers/Cart/Cart';
 import CheckOut from './Containers/CheckOut/CheckOut';
+import ProtectedRoute from './hoc/ProtectedRoute';
+import UserLoguedRoute from './hoc/UserLoguedRoute';
 
 const App = () => {
+  const [user, setUser] = useContext(AuthContext);
+
   let routes = (
     <Switch>
       <Route path="/home" component={Home} />
-      <Route path="/signin" component={SignIn} />
-      <Route path="/signup" component={SignUp} />
+      <UserLoguedRoute path="/signin" component={SignIn} />
+      <UserLoguedRoute path="/signup" component={SignUp} />
       <Route path="/shopping/cart" component={Cart} />
-      <Route path="/shopping/checkout" component={CheckOut} />
+      <ProtectedRoute path="/shopping/checkout" component={CheckOut} />
       <Route path="/product/:url/:id" component={ProductDetails} />
       <Route path="/:category/:subCategory" component={Category} />
       <Route path="/" component={Home} />
@@ -28,13 +33,11 @@ const App = () => {
   );
 
   return (
-    <AuthProvider>
       <CartProvider>  
         <Layout>
           { routes }
         </Layout>
       </CartProvider>
-    </AuthProvider>
   );
 }
 

@@ -52,8 +52,11 @@ const Login = () => {
         firebaseAuth.onAuthStateChanged(user => {
             if(user) {
                 clearInputs();
-                UserService.getUserDataByUid(user.uid)
-                    .on('value', userChange);
+                    UserService.getUserDataByUid(user.uid)
+                        .then(res => {
+                            setUser(res)
+                        })
+                        .catch(err => console.error('fallito'));
             }
             else {
                 setUser('');
@@ -61,16 +64,10 @@ const Login = () => {
         })
     };
 
-    const userChange = (items) => {
-        items.forEach(item => {
-            let data = item.val();
-            setUser(data);
-        });
-    }
-
     useEffect(() => {
         authListener();
     }, []);
+
 
     return (
         <>
@@ -94,22 +91,13 @@ const Login = () => {
                         <p className='errorMsg'> { passwordError } </p>
                     </div>
                 </div>
-                {!user
-                    ? (
-                        <>
-                            <Button 
-                                type='submit'>
-                                Sign In
-                            </Button>
-                            <div className='text-near-signup'>
-                                New To TechStore? <Link to={'/signup'}> Sign Up </Link>
-                            </div>
-                        </>
-                    )
-                    : (
-                        <Redirect to='/home' />
-                    )
-                }
+                <Button 
+                    type='submit'>
+                    Sign In
+                </Button>
+                <div className='text-near-signup'>
+                    New To TechStore? <Link to={'/signup'}> Sign Up </Link>
+                </div>
             </form>
         </>
     );
