@@ -1,0 +1,37 @@
+.sidedrawer-menu-item {
+    color: white;
+    margin: 10px 0;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    cursor: pointer;
+    line-height: 1.5em;
+    letter-spacing: .175em;
+    text-transform: uppercase;
+    padding: 1em;
+    font-weight: 500;
+    font-size: small;
+}
+
+.sidedrawer-menu-item a {
+    text-decoration: none;
+    color: white;
+}
+
+.sidedrawer-menu-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidedrawer-menu-title p {
+    font-size: x-large;
+}
+
+.sidedrawer-collapsible-content {
+    margin-top: 20px;
+    display: grid;
+}
+
+.sidedrawer-collapsible-content a {
+    margin: 20px 0;
+}

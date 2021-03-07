@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import './SidedrawerMenu.css';
 
-import MenuItem from '../../Navigation/Menu/MenuItem/MenuItem';
 import CategoriesServices from '../../../Services/CategoriesService';
-import Logo from '../../Logo/Logo';
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SidedrawerMenuItem from './SidedrawerMenuItem/SidedrawerMenuItem';
 
-const SidedrawerMenu = () => {
+const SidedrawerMenu = (props) => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => 
@@ -35,11 +34,11 @@ const SidedrawerMenu = () => {
                 <ul className='menu'>
                     {categories ?
                         categories.map((item, key) => {
-                            return <MenuItem 
+                            return <SidedrawerMenuItem 
                                 key={key}
-                                className='MenuItem'
                                 title={item.title}
                                 link={item.link}
+                                close={props.closed}
                                 subCategories={item.subCategories}/>
                         }) 
                         : null
