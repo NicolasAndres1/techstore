@@ -89,10 +89,10 @@ const SidedrawerMenu = (props) => {
                 )
                 : (
                     <Link 
-                        className='login'
+                        className='option'
                         to={'/signin'}
                         onClick={props.closed}>
-                        Login      
+                        LOGIN     
                         <button
                             type='button'
                             title='User'
