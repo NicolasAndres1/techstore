@@ -49,8 +49,6 @@ const SidedrawerMenu = (props) => {
         setCart([]);
     };
 
-    console.log(user);
-
     return (
         <>
             {user
