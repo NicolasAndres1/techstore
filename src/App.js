@@ -13,6 +13,7 @@ import SignIn from './Containers/SignIn/SignIn'
 import SignUp from './Containers/SignUp/SignUp';
 import Cart from './Containers/Cart/Cart';
 import CheckOut from './Containers/CheckOut/CheckOut';
+import OrderHistory from './Containers/OrderHistory/OrderHistory';
 import ProtectedRoute from './hoc/ProtectedRoute';
 import UserLoguedRoute from './hoc/UserLoguedRoute';
 
@@ -28,6 +29,7 @@ const App = () => {
       <ProtectedRoute path="/shopping/checkout" component={CheckOut} />
       <Route path="/product/:url/:id" component={ProductDetails} />
       <Route path="/:category/:subCategory" component={Category} />
+      <ProtectedRoute path="/order-history" component={OrderHistory} />
       <Route path="/" component={Home} />
     </Switch>
   );

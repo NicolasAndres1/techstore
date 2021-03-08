@@ -39,12 +39,13 @@ const CheckOut = (props) => {
         setIsLoading(true);
         e.preventDefault();
         const order = {
+            id: Date.now(),
             uid: user.uid,
             country: country,
             firstName: firstName,
             lastName: lastName,
             address: address,
-            addressOpt: addressOpt,
+            addressOpt: addressOpt ? addressOpt : null,
             city: city,
             stateProvince: stateProvince,
             zipCode: zipCode,
@@ -61,6 +62,7 @@ const CheckOut = (props) => {
         OrderService.saveOrder(order)
             .then(() => {
                 setCart([]);
+                localStorage.setItem('cart-items', []);
                 history.push('/home');
             })
             .catch(err => console.log('error'))

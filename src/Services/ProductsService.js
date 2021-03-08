@@ -16,7 +16,7 @@ const getByCategory = (category) =>
 const getByItemTypes = (itemType) => 
     docRef.where('subCategory', 'in', itemType)
         .get()
-        .then(res => res.docs.map(doc => doc.data()))
+        .then(res => res.docs.map(doc => doc.data()));
 
 
 export default {

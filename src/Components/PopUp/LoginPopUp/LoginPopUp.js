@@ -87,7 +87,9 @@ const LoginPopUp = (props) => {
                             <Link 
                                 to='/shopping/cart'
                                 onClick={props.closed}> Cart </Link>
-                            <Link to='/'> Order History </Link>
+                            <Link 
+                                to='/order-history'
+                                onClick={props.closed}> Order History </Link>
                         </div>
                         <hr />
                         <Button onClick={handleLogout}> Logout </Button>
