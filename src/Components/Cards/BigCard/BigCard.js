@@ -18,7 +18,7 @@ const BigCard = props => (
         </div>
         <p className={classes.ProductName}> { props.name } </p>
         <p className={classes.PreviousPrice}> $ { props.previousPrice } </p>
-        <p className={classes.ProductPrice}> $ { props.price } </p>
+        <p className={classes.ProductPrice}> $ { props.currentPrice } </p>
         <CustomButton className={classes.CustomButton}> See details </CustomButton>
     </li>
 );

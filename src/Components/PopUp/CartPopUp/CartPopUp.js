@@ -44,7 +44,7 @@ const CartPopUp = (props) => {
                 )
                 : (
                     <div>
-                        There is no items in your cart
+                        There are no items in your cart
                     </div>
                 )
             }
