@@ -32,7 +32,7 @@
     margin: 15px;
 }
 
-@media (min-width: 499px) {
+@media (min-width: 480px) {
 
     .LogoWrapper {
         display: flex;
