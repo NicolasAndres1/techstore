@@ -16,7 +16,7 @@ const BestDeals = props => (
                     <BigCard 
                         img={data.img}
                         name={data.name}
-                        price={data.price}
+                        currentPrice={data.currentPrice}
                         stock={data.stock}
                         brand={data.brand}
                         previousPrice={data.previousPrice}/>

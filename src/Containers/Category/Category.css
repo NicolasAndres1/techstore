@@ -11,7 +11,7 @@
 }
 
 .product-filter {
-    margin: auto;
+    margin: 0;
     padding: 10px;
 }
 
@@ -23,7 +23,16 @@
     width: 100%;
 }
 
+.checkout-spinner .loader {
+    color: white;
+    margin-top: 320px;
+}
 
+.category-no-items {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
 
 @media (min-width: 499px) {
     .products-wrapper {

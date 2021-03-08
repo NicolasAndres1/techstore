@@ -18,11 +18,13 @@ const Layout = props => {
     useEffect(() => {firebaseAuth.onAuthStateChanged(user => loadCart(user))}, [])
 
     const loadCart = (user) => {
-        const localStorageCart = JSON.parse(localStorage.getItem('cart-items'));
+        let localStorageCart = null;
+        if(localStorage.getItem('cart-items'))
+            localStorageCart = JSON.parse(localStorage.getItem('cart-items'));
 
         if (user)
             UserService.getUserDataByUid(user.uid)
-                .then(res => loadCartWithUserLogged(res.cartItems, localStorageCart))
+                .then(res => loadCartWithUserLogged(res.cartItems, localStorageCart ? localStorageCart : null))
                 .catch(err => console.error(err));
         else if(!user && localStorageCart) 
             setCart(localStorageCart)
