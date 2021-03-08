@@ -26,7 +26,7 @@ const SidedrawerMenu = (props) => {
                     <>
                         <Link 
                             className='login'
-                            to={'/signin'}
+                            to={'/order-history'}
                             onClick={props.closed}>
                             Order History  
                             <button
