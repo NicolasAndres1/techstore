@@ -57,31 +57,30 @@ const Category = props => {
                         filtersChanges={filtersToApply}
                         searchByCategory={searchByCategory}/>
             </Sidedrawer>
-            
-                    <div className='category-wrapper'>
-                        <h2> { subCategory.replace('-',' ').toUpperCase() } </h2>
-                        <div className='products-wrapper'>
-                            <div className='product-filter'>
-                                <ProductFilter 
-                                    category={category}
-                                    subCategory={subCategory}
-                                    clicked={sideDrawerToggleHandler}
-                                    filtersChanges={filtersToApply}
-                                    searchByCategory={searchByCategory}/>
-                            </div>
-                            {categoryItems.length > 0
-                                ? (
-                                <div className='category-items'>
-                                    <ProductsContainer 
-                                        items={categoryItems}/>
-                                </div>
-                                )
-                                : (
-                                    <h2 className='category-no-items'> THERE ARE NO ITEMS TO DISPLAY </h2>
-                                )
-                            }
-                        </div>
+            <div className='category-wrapper'>
+                <h2> { subCategory.replace('-',' ').toUpperCase() } </h2>
+                <div className='products-wrapper'>
+                    <div className='product-filter'>
+                        <ProductFilter 
+                            category={category}
+                            subCategory={subCategory}
+                            clicked={sideDrawerToggleHandler}
+                            filtersChanges={filtersToApply}
+                            searchByCategory={searchByCategory}/>
                     </div>
+                    {categoryItems.length > 0
+                        ? (
+                        <div className='category-items'>
+                            <ProductsContainer 
+                                items={categoryItems}/>
+                        </div>
+                        )
+                        : (
+                            <h2 className='category-no-items'> THERE ARE NO ITEMS TO DISPLAY </h2>
+                        )
+                    }
+                </div>
+            </div>
             
         </>
     );

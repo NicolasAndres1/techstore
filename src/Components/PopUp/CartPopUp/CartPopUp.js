@@ -9,6 +9,11 @@ import Button from '../../Button/CustomButton';
 const CartPopUp = (props) => {
     const [cart, setCart] = useContext(CartContext);
 
+    const emptyCartHandler = () => {
+        setCart([]);
+        localStorage.removeItem('cart-items');
+    }
+
     return (
         <div className='cart-container'>
             <h4 className='cart-title'> My Cart </h4>
@@ -38,7 +43,7 @@ const CartPopUp = (props) => {
                                 to={`/shopping/cart`}>
                                 <Button> Go to Cart </Button>
                             </Link>
-                            <Button> Empty Cart </Button>
+                            <Button onClick={emptyCartHandler}> Empty Cart </Button>
                         </div>
                     </>
                 )
