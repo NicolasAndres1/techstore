@@ -62,7 +62,7 @@ const CheckOut = (props) => {
         OrderService.saveOrder(order)
             .then(() => {
                 setCart([]);
-                localStorage.setItem('cart-items', []);
+                localStorage.removeItem('cart-items');
                 history.push('/home');
             })
             .catch(err => console.log('error'))
