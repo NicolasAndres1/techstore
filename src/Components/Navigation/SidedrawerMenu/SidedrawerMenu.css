@@ -23,7 +23,7 @@ hr {
     display: flex;
 }
 
-.login {
+.option {
     color: white;
     font-weight: 700;
     line-height: 1.5em;
@@ -33,6 +33,10 @@ hr {
     display: flex;
     justify-content: space-between;
     margin: 5px 11px 18px 11px;
+}
+
+.sidedrawer-menu-greeting {
+
 }
 
 .sidedrawer-logo {
@@ -49,4 +53,10 @@ hr {
 .sidedrawer-logo .fa-history {
     max-height: 100%;
     max-width: 100%;
+}
+
+.sidedrawer-logo .fa-user-slash {
+    max-height: 100%;
+    max-width: 100%;
+
 }

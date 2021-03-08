@@ -65,7 +65,7 @@ const Cart = () => {
                     </div>
                 )
                 : (
-                    <p> no hay </p>
+                    <p> THERE IS NOT ITEMS IN YOUR CART </p>
                 )
             }
         </div>

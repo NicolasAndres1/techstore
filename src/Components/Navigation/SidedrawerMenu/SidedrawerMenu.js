@@ -1,16 +1,20 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
+import { CartContext } from '../../../contexts/CartContext';
+import UserService from '../../../Services/UserService';
+import { firebaseAuth } from '../../../Config/firebaseConfig';
 
 import './SidedrawerMenu.css';
 
 import CategoriesServices from '../../../Services/CategoriesService';
-import { faUser, faHistory } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faHistory, faUserSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SidedrawerMenuItem from './SidedrawerMenuItem/SidedrawerMenuItem';
 
 const SidedrawerMenu = (props) => {
     const [user, setUser] = useContext(AuthContext);
+    const [cart, setCart] = useContext(CartContext)
     const [categories, setCategories] = useState([]);
 
     useEffect(() => 
@@ -19,13 +23,44 @@ const SidedrawerMenu = (props) => {
             .catch(err => console.error(err))
     , []);
 
+    const authListener = () => {
+        firebaseAuth.onAuthStateChanged(user => {
+            if(user) {
+                setTimeout(() => {
+                    UserService.getUserDataByUid(user.uid)
+                        .then(res => {
+                            setUser(res)
+                        })
+                        .catch(err => console.error(err));
+                }, 1500);
+            }
+            else {
+                setUser('');
+            }
+        });
+    };
+
+    useEffect(() => {
+        authListener();
+    }, []);
+
+    const handleLogout = () => {
+        firebaseAuth.signOut();
+        setCart([]);
+    };
+
+    console.log(user);
+
     return (
         <>
             {user
                 ? (
                     <>
+                        <div className='option'> 
+                            Hi { user.firstName } ! 👋 
+                        </div>
                         <Link 
-                            className='login'
+                            className='option'
                             to={'/order-history'}
                             onClick={props.closed}>
                             Order History  
@@ -36,6 +71,20 @@ const SidedrawerMenu = (props) => {
                                 <FontAwesomeIcon 
                                     className='FontAwesomeIcon'
                                     icon={faHistory}/>
+                            </button>
+                        </Link>
+                        <Link 
+                            className='option'
+                            to={'/home'}
+                            onClick={handleLogout}>
+                            LOGOUT
+                            <button
+                                type='button'
+                                title='User'
+                                className='sidedrawer-logo'>
+                                <FontAwesomeIcon 
+                                    className='FontAwesomeIcon'
+                                    icon={faUserSlash}/>
                             </button>
                         </Link>
                     </>
